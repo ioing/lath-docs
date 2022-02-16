@@ -1,0 +1,70 @@
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.g-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 120px;
+  filter: contrast(15);
+}
+
+.word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-animation: change 8s infinite ease-in-out;
+          animation: change 8s infinite ease-in-out;
+}
+.word:nth-child(1) {
+  -webkit-animation-delay: -8s;
+          animation-delay: -8s;
+}
+.word:nth-child(2) {
+  -webkit-animation-delay: -6.4s;
+          animation-delay: -6.4s;
+}
+.word:nth-child(3) {
+  -webkit-animation-delay: -4.8s;
+          animation-delay: -4.8s;
+}
+.word:nth-child(4) {
+  -webkit-animation-delay: -3.2s;
+          animation-delay: -3.2s;
+}
+
+@-webkit-keyframes change {
+  0%, 5%, 100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  50%, 80% {
+    filter: blur(80px);
+    opacity: 0;
+  }
+}
+
+@keyframes change {
+  0%, 5%, 100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  50%, 80% {
+    filter: blur(80px);
+    opacity: 0;
+  }
+}
+</style>
+
+<div id='wrapper'>
+  <div class="g-container">
+    <div class="word">iPhone</div>
+    <div class="word">13</div>
+    <div class="word">Pro</div>
+    <div class="word">强得很！</div>
+  </div>
+</div>

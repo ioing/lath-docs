@@ -1,0 +1,104 @@
+<style>
+:host {
+  width: 15px;
+}
+
+#m {
+  margin: 0;
+  width: inherit;
+  position: relative;
+  display: inline-block;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: var(--menu-button-cursor, default);
+  transition: all 0.2s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  --menu-button-color: #fff;
+  opacity: 0.8;
+}
+
+/* this trick makes the height 75% of the width (4:3 ratio) */
+#m:after {
+  padding-top: 75%;
+  display: block;
+  content: "";
+}
+
+@media (hover: hover) {
+  :host(:hover) {
+    opacity: 0.75;
+  }
+}
+
+#m span {
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: var(--menu-button-color, #000000);
+  border-radius: 0.5px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  -moz-transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  -o-transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+
+}
+
+#m span:nth-child(1) {
+  top: 0%;
+}
+
+#m span:nth-child(2),
+#m span:nth-child(3) {
+  top: 40%;
+}
+
+#m span:nth-child(4) {
+  top: 80%;
+}
+
+:host([open]) #m span:nth-child(1) {
+  top: 40%;
+  width: 0%;
+  left: 50%;
+}
+
+:host([open]) #m span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+:host([open]) #m span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+:host([open]) #m span:nth-child(4) {
+  top: 40%;
+  width: 0%;
+  left: 50%;
+}
+</style>
+
+<div id='m'>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>

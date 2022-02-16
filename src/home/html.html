@@ -1,0 +1,374 @@
+<html>
+  <head>
+    <style>
+      html, body {
+        margin: 0;
+        background: var(--background, #000);
+      }
+      body {
+        margin: 0 8px;
+      }
+      #figure {
+        margin: 0;
+        padding-bottom: 12px;
+        overflow: hidden;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+      #figure-container {
+        position: relative;
+        width: 100%;
+        margin: 60px 0;
+        font-family: "Montserrat", sans-serif;
+        color: var(--logoText, #fff);
+        font-size: 120px;
+        transition: transform 0.3s ease;
+      }
+
+      @media screen and (max-width: 700px) {
+        #figure-container {
+          zoom: .7;
+        }
+      }
+
+      @media screen and (max-width: 360px) {
+        #figure-container {
+          zoom: .6;
+        }
+      }
+      .subtitle {
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        z-index: 9;
+        color: rgba(255, 255, 255, .3);
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+      }
+      .placeholder {
+        height: var(--application-safe-area-top)
+      }
+      .card {
+        min-height: 100px;
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: 12px;
+        border-radius: 16px;
+        border: 0.5px solid rgba(255, 255, 255, .05);
+        background: var(--cardbg, rgba(255, 255, 255, .1));
+      }
+      .card-title {
+        font-size: 28px;
+        padding: 5px 20px;
+        color: rgba(255, 255, 255, .3);
+        -webkit-font-smoothing: antialiased;
+      }
+      .card-list {
+        padding: 0;
+        margin: 0;
+      }
+      .card-list a {
+        display: block;
+        position: relative;
+        font-size: 18px;
+        padding: 15px 20px;
+        list-style: none;
+        font-weight: 400;
+        color: var(--cardTextColor, rgba(255, 255, 255, .92));
+        border-bottom: 0.5px solid rgba(255, 255, 255, .2);
+        align-content: space-between;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .card-list a:hover {
+        background: rgba(255, 255, 255, .1);
+      }
+
+      @media (pointer: coarse) {
+        .card-list a:hover {
+          background: none;
+        }
+      }
+      .card-list a:last-child {
+        border-bottom: 0;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+      .card-list a:after {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        content: ' ';
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyBmaWxsPScjY2NjY2NjJyB2ZXJzaW9uPScxLjEnIGlkPSflm77lsYJfMScgeD0nMHB4JyB5PScwcHgnIHZpZXdCb3g9JzAgMCA1NCA1NCcgZW5hYmxlLWJhY2tncm91bmQ9J25ldyAwIDAgNTQgNTQnIHhtbDpzcGFjZT0ncHJlc2VydmUnPjxzY3JpcHQgeG1sbnM9JycgdHlwZT0ndGV4dC9qYXZhc2NyaXB0JyBjcm9zc29yaWdpbj0nYW5vbnltb3VzJy8+PHBhdGggZD0nTTQ0LjYsMjguNWMwLTAuMSwwLjEtMC4xLDAuMS0wLjJjMC42LTEuMywwLjQtMi45LTAuNy0zLjlMMTkuMiwwLjljLTEuNC0xLjMtMy41LTEuMi00LjgsMC4xcy0xLjIsMy41LDAuMSw0LjhsMjIuMiwyMSBMMTQuNyw0OC4yYy0xLjMsMS4zLTEuNCwzLjQtMC4xLDQuOGMwLjcsMC43LDEuNSwxLDIuNCwxYzAuOCwwLDEuNy0wLjMsMi4zLTAuOWwyNC42LTIzLjdjMCwwLDAuMS0wLjEsMC4xLTAuMmMwLDAsMC4xLTAuMSwwLjEtMC4xIEM0NC4zLDI4LjksNDQuNCwyOC43LDQ0LjYsMjguNUw0NC42LDI4LjV6Jy8+PC9zdmc+");
+      }
+      .card-list a span {
+        font-size: 13px;
+        color: rgba(255, 255, 255, .3);
+        -webkit-font-smoothing: antialiased;
+      }
+      @media screen and (max-width: 700px) {
+        .card-title {
+          font-size: 18px;
+        }
+        .card-list a {
+          font-size: 16px;
+        }
+        .card-list a:after {
+          width: 16px;
+          height: 16px;
+          margin-top: -8px;
+        }
+      }
+    </style>
+    <style>
+      body {
+        font-family: 'Lato', sans-serif;
+      }
+      h1 {
+        animation: glitch 3s steps(100) infinite;
+        color: #fff;
+        font-size: 150px;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1;
+        margin: 0.5em 0;
+      }
+
+      @media (min-width: 480px) {
+        h1 {
+          font-size: 180px;
+        }
+      }
+
+      @keyframes glitch {
+        0% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        1% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        2% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        3% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        4% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        5% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        6% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        7% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        8% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        9% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        10% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        11% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        12% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        13% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        14% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        15% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        16% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        17% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        18% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        19% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        20% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        21% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        22% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        23% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        24% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        25% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        26% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0.5px);}
+        27% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0.5px);}
+        28% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        29% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        30% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        31% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        32% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        33% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        34% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        35% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0.5px);}
+        36% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0.5px);}
+        37% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0.5px);}
+        38% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        39% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        40% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        41% { text-shadow: 45px 0 0 #0c33f5, -45px 0 0 lime; filter: blur(0);}
+        42% { text-shadow: 0 0 0 #0c33f5, 0 0 0 lime; filter: blur(0);}
+        43% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        44% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        45% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        46% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        47% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0.5px);}
+        48% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        49% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        50% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        51% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        52% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        53% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        54% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        55% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0.5px);}
+        56% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0.5px);}
+        57% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0.5px);}
+        58% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        59% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        60% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        61% { text-shadow: 30px 0 0 red, -30px 0 0 lime; filter: blur(0);}
+        62% { text-shadow: 0 0 0 red, 0 0 0 lime; filter: blur(0);}
+        63% { text-shadow: 1px 0 0 red, -1px 0 0 #0c33f5; filter: blur(0);}
+        64% { text-shadow: 1px 0 0 red, -1px 0 0 #0c33f5; filter: blur(0);}
+        65% { text-shadow: 1px 0 0 red, -1px 0 0 #0c33f5; filter: blur(0);}
+        66% { text-shadow: 1px 0 0 red, -1px 0 0 #0c33f5; filter: blur(0.5px);}
+        67% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0.5px);}
+        68% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        69% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        70% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        71% { text-shadow: 50px 0 0 red, -50px 0 0 #0c33f5; filter: blur(0);}
+        72% { text-shadow: 0 0 0 red, 0 0 0 #0c33f5; filter: blur(0);}
+        73% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        74% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        75% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        76% { text-shadow: 3px 0 0 red, -3px 0 0 #0c33f5; filter: blur(0);}
+        77% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        78% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        79% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        80% { text-shadow: -3px 0 0 red, 3px 0 0 #0c33f5; filter: blur(0);}
+        81% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        82% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0);}
+        83% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        84% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        85% { text-shadow: 1px 0 0 red, -1px 0 0 lime; filter: blur(0.5px);}
+        86% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0.5px);}
+        87% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0.5px);}
+        88% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        89% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        90% { text-shadow: -3px 0 0 red, 3px 0 0 lime; filter: blur(0);}
+        91% { text-shadow: 60px 0 0 lime, -60px 0 0 #0c33f5; filter: blur(0);}
+        92% { text-shadow: 0 0 0 lime, 0 0 0 #0c33f5; filter: blur(0);}
+        92% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        93% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        94% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        95% { text-shadow: 0.8px 0 0 #0c33f5, -0.8px 0 0 lime; filter: blur(0);}
+        96% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        97% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        98% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        99% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+        100% { text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime; filter: blur(0);}
+      }
+
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const figure = document.getElementById("figure-container");
+        window.addEventListener('scroll', (event) => {
+          figure.style.transform = `scale(${window.scrollY > 40 ? 1.3 : 1})`
+        })
+      })
+      const _to = (id) => {
+        window.parent.postMessage({ action: 'to', data: { module: id } }, '*')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="placeholder"></div>
+    <figure id="figure">
+      <div id="figure-container">
+        <h1>Lath</h1>
+      </div>
+      <div class="subtitle">一个页面无缝连接容器</div>
+    </figure>
+    <div class="card">
+      <div class="card-title">Start</div>
+      <div class="card-list">
+        <a href="?id=install#doc">Install & Preface</a>
+        <a href="?id=start#doc">Start</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Base</div>
+      <div class="card-list">
+        <a href="?id=rel#doc">Rel</a>
+        <a href="?id=title#doc">Title</a>
+        <a href="?id=source#doc">Source</a>
+        <a href="?id=index#doc">Index</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Viewport</div>
+      <div class="card-list">
+        <a href="?id=free#doc">Free</a>
+        <a href="?id=level#doc">Level</a>
+        <a href="?id=color#doc">Color</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Animate Effect</div>
+      <div class="card-list">
+        <a href="?id=preset#doc">Slide</a>
+        <a href="?id=preset#doc" preset-effect="slide-right" clone-as="doc-right">SlideRight</a>
+        <a href="?id=preset#doc" preset-effect="slide-up" clone-as="doc-up">SlideUp</a>
+        <a href="?id=preset#doc" preset-effect="slide-down" clone-as="doc-down">SlideDown</a>
+        <a href="?id=preset#doc" preset-effect="zoom" clone-as="doc-zoom">Zoom</a>
+        <a href="?id=preset#doc" preset-effect="flip" clone-as="doc-flip">Flip</a>
+        <a href="?id=preset#doc" preset-effect="flip-left" clone-as="doc-flip-left">FlipLeft</a>
+        <a href="?id=preset#doc" preset-effect="flip-right" clone-as="doc-flip-right">FlipRight</a>
+        <a href="?id=preset#doc" preset-effect="flip-up" clone-as="doc-flip-up">FlipUp</a>
+        <a href="?id=preset#doc" preset-effect="flip-down" clone-as="doc-flip-down">FlipDown</a>
+        <a href="?id=customEffect#doc" preset-effect="slide" clone-as="doc-flip-down">Custom Effect</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Lifecycle</div>
+      <ul class="card-list">
+        <a href="?id=background#doc">Background</a>
+        <a href="?id=timeout#doc">Timeout</a>
+        <a href="?id=limit#doc">Limit</a>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Performance</div>
+      <ul class="card-list">
+        <a href="?id=resource#doc">Resource</a>
+        <a href="?id=prerender#doc">Prerender</a>
+        <a href="?id=components#doc">Components</a>
+        <a href="?id=mediaGuard#doc">MediaGuard</a>
+        <a href="?id=portal#doc">Portal</a>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Safest</div>
+      <ul class="card-list">
+        <a href="?id=allowHost#doc">AllowHost</a>
+        <a href="?id=sandbox#doc">Sandbox</a>
+        <a href="?id=capture#doc">Capture</a>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Other</div>
+      <ul class="card-list">
+        <a href="?id=apply#doc">Apply & unApply</a>
+        <a href="?id=events#doc">Events</a>
+        <a href="?id=preindex#doc">Preindex</a>
+        <a href="?id=notFind#doc">NotFind</a>
+        <a href="?id=singleFlow#doc">SingleFlow</a>
+        <a href="?id=singleLock#doc">SingleLock</a>
+        <a href="?id=holdBack#doc">HoldBack</a>
+        <a href="?id=transient#doc">Transient & DisableTransient</a>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Advance</div>
+      <ul class="card-list">
+        <a href="?id=moduleManifestProcess#doc">ModuleManifestProcess</a>
+        <a href="?id=touchBorder#doc">TouchBorder</a>
+        <a href="?id=inject#doc">Inject</a>
+        <a href="?id=render#doc">Render</a>
+        <a href="?id=safeArea#doc">SafeArea</a>
+        <a href="?id=globalCSSVariables#doc">GlobalCSSVariables</a>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Preset Config</div>
+      <ul class="card-list">
+        <a href="?id=tunneling#doc">Tunneling</a>
+        <a href="?id=zIndex#doc">ZIndex</a>
+        <a href="?id=unuseShadowDom#doc">UnuseShadowDom</a>
+      </ul>
+    </div>
+    <br />
+  </body>
+</html>

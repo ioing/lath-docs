@@ -1,0 +1,33 @@
+<style>
+:host {
+  width: 100%;
+}
+
+#wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999999;
+  transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+  overflow-y: auto;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  #wrapper {
+    background: rgba(0, 0, 0, 0.8);
+  }
+} */
+
+:host([open]) #wrapper {
+  background: rgba(0, 0, 0, 1);
+  height: 100vh;
+}
+</style>
+
+<div id='wrapper'>
+  <slot name='list'></slot>
+</div>
