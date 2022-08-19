@@ -47,6 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "mainScrollId": () => (/* reexport safe */ _zh_CN_mainScrollId__WEBPACK_IMPORTED_MODULE_33__["default"]),
 /* harmony export */   "mediaGuard": () => (/* reexport safe */ _zh_CN_mediaGuard__WEBPACK_IMPORTED_MODULE_17__["default"]),
 /* harmony export */   "modality": () => (/* reexport safe */ _zh_CN_modality__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "noShadowDom": () => (/* reexport safe */ _zh_CN_noShadowDom__WEBPACK_IMPORTED_MODULE_28__["default"]),
 /* harmony export */   "notFound": () => (/* reexport safe */ _zh_CN_notFound__WEBPACK_IMPORTED_MODULE_38__["default"]),
 /* harmony export */   "openSlideViewLeftHolder": () => (/* reexport safe */ _zh_CN_openSlideViewLeftHolder__WEBPACK_IMPORTED_MODULE_30__["default"]),
 /* harmony export */   "portal": () => (/* reexport safe */ _zh_CN_portal__WEBPACK_IMPORTED_MODULE_18__["default"]),
@@ -68,7 +69,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "transient": () => (/* reexport safe */ _zh_CN_transient__WEBPACK_IMPORTED_MODULE_42__["default"]),
 /* harmony export */   "tunneling": () => (/* reexport safe */ _zh_CN_tunneling__WEBPACK_IMPORTED_MODULE_27__["default"]),
 /* harmony export */   "tutorialSlidingCards": () => (/* reexport safe */ _zh_CN_tutorialSlidingCards__WEBPACK_IMPORTED_MODULE_60__["default"]),
-/* harmony export */   "unusedShadowDom": () => (/* reexport safe */ _zh_CN_unusedShadowDom__WEBPACK_IMPORTED_MODULE_28__["default"]),
 /* harmony export */   "useMirroring": () => (/* reexport safe */ _zh_CN_useMirroring__WEBPACK_IMPORTED_MODULE_41__["default"])
 /* harmony export */ });
 /* harmony import */ var _zh_CN_install__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./zh-CN/install */ "./src/doc/lang/zh-CN/install.ts");
@@ -99,7 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _zh_CN_safeArea__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./zh-CN/safeArea */ "./src/doc/lang/zh-CN/safeArea.ts");
 /* harmony import */ var _zh_CN_globalCSSVariables__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./zh-CN/globalCSSVariables */ "./src/doc/lang/zh-CN/globalCSSVariables.ts");
 /* harmony import */ var _zh_CN_tunneling__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./zh-CN/tunneling */ "./src/doc/lang/zh-CN/tunneling.ts");
-/* harmony import */ var _zh_CN_unusedShadowDom__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./zh-CN/unusedShadowDom */ "./src/doc/lang/zh-CN/unusedShadowDom.ts");
+/* harmony import */ var _zh_CN_noShadowDom__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./zh-CN/noShadowDom */ "./src/doc/lang/zh-CN/noShadowDom.ts");
 /* harmony import */ var _zh_CN_defaultSlideViewApplets__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./zh-CN/defaultSlideViewApplets */ "./src/doc/lang/zh-CN/defaultSlideViewApplets.ts");
 /* harmony import */ var _zh_CN_openSlideViewLeftHolder__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./zh-CN/openSlideViewLeftHolder */ "./src/doc/lang/zh-CN/openSlideViewLeftHolder.ts");
 /* harmony import */ var _zh_CN_pullToRefresh__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./zh-CN/pullToRefresh */ "./src/doc/lang/zh-CN/pullToRefresh.ts");
@@ -1623,12 +1623,10 @@ __webpack_require__.r(__webpack_exports__);
                 type: 'code',
                 value: `
           <code-highlight type="ts">
-            declare interface ServiceWorkerInstallConfig {
-              swPathUrl?: string
+            declare interface RegistrationOptions {
               scope?: string
-              source?: Array<string>
             }
-            type install = (options: ServiceWorkerInstallConfig, version: string) => Promise&lt;ServiceWorkerRegistration>
+            type install = (scriptURL: string, options: RegistrationOptions, source: Array<string>, version: string) => Promise&lt;ServiceWorkerRegistration>
           </code-highlight>
         `
             },
@@ -4433,6 +4431,106 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/doc/lang/zh-CN/noShadowDom.ts":
+/*!*******************************************!*\
+  !*** ./src/doc/lang/zh-CN/noShadowDom.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    title: 'UnuseShadowDom',
+    content: [
+        [
+            {
+                type: 'title',
+                value: 'UnusedShadowDom'
+            },
+            {
+                type: 'sub',
+                value: 'PresetConfig > noShadowDom'
+            },
+            {
+                type: 'text',
+                value: '框架是否使用 ShadowDom 模式。（应用启动前的预配置项）'
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Types</h3>'
+            },
+            {
+                type: 'code',
+                value: `
+          <code-highlight type="ts">
+            interface PresetConfig {
+              noShadowDom?: boolean
+            }
+          </code-highlight>
+        `
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Details</h3>'
+            },
+            {
+                type: 'tips',
+                value: '关于 ShadowDom 的更多信息，请查看 W3C 的介绍。'
+            },
+            {
+                type: 'text',
+                value: '若你通过 createApplication 指定“index”的模式启动应用时，进行预置的程序卡节点会被直接移动到 ShadowDom 中，此时会造成存在节点外的样式及依赖缺失（比如一些依赖的脚本事件绑定元素和动态注入的全局样式等）。'
+            },
+            {
+                type: 'text',
+                value: '默认情况下 ShadowDom 模式已经时关闭的，你无需设定改选项，如果你不存在上述问题，且希切片的程序卡之间不会产生一些干扰，则可以关闭改选项，此时同页面中的切片产生的程序卡则互相之间产生作用域。'
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Example</h3>'
+            },
+            {
+                type: 'code',
+                value: `
+          <code-highlight type="ts">
+            createApplication({
+              tunneling: true,
+              applets: {
+                ...
+              }
+            })
+          </code-highlight>
+        `
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Notes</h3>'
+            },
+            {
+                type: 'text',
+                value: '极少情况下会使用到该配置，当然如果你能使用 &lt;define-applet> 来代替将会是更好的选择。'
+            }
+        ]
+    ]
+});
+
+
+/***/ }),
+
 /***/ "./src/doc/lang/zh-CN/notFound.ts":
 /*!****************************************!*\
   !*** ./src/doc/lang/zh-CN/notFound.ts ***!
@@ -6794,106 +6892,6 @@ __webpack_require__.r(__webpack_exports__);
         </code-highlight>
         `
             },
-        ]
-    ]
-});
-
-
-/***/ }),
-
-/***/ "./src/doc/lang/zh-CN/unusedShadowDom.ts":
-/*!***********************************************!*\
-  !*** ./src/doc/lang/zh-CN/unusedShadowDom.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-    title: 'UnuseShadowDom',
-    content: [
-        [
-            {
-                type: 'title',
-                value: 'UnusedShadowDom'
-            },
-            {
-                type: 'sub',
-                value: 'PresetConfig > unusedShadowDom'
-            },
-            {
-                type: 'text',
-                value: '框架是否使用 ShadowDom 模式。（应用启动前的预配置项）'
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Types</h3>'
-            },
-            {
-                type: 'code',
-                value: `
-          <code-highlight type="ts">
-            interface PresetConfig {
-              unusedShadowDom?: boolean
-            }
-          </code-highlight>
-        `
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Details</h3>'
-            },
-            {
-                type: 'tips',
-                value: '关于 ShadowDom 的更多信息，请查看 W3C 的介绍。'
-            },
-            {
-                type: 'text',
-                value: '若你通过 createApplication 指定“index”的模式启动应用时，进行预置的程序卡节点会被直接移动到 ShadowDom 中，此时会造成存在节点外的样式及依赖缺失（比如一些依赖的脚本事件绑定元素和动态注入的全局样式等）。'
-            },
-            {
-                type: 'text',
-                value: '默认情况下 ShadowDom 模式已经时关闭的，你无需设定改选项，如果你不存在上述问题，且希切片的程序卡之间不会产生一些干扰，则可以关闭改选项，此时同页面中的切片产生的程序卡则互相之间产生作用域。'
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Example</h3>'
-            },
-            {
-                type: 'code',
-                value: `
-          <code-highlight type="ts">
-            createApplication({
-              tunneling: true,
-              applets: {
-                ...
-              }
-            })
-          </code-highlight>
-        `
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Notes</h3>'
-            },
-            {
-                type: 'text',
-                value: '极少情况下会使用到该配置，当然如果你能使用 &lt;define-applet> 来代替将会是更好的选择。'
-            }
         ]
     ]
 });

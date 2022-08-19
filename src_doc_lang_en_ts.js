@@ -30,6 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "mainScrollId": () => (/* reexport safe */ _en_mainScrollId__WEBPACK_IMPORTED_MODULE_33__["default"]),
 /* harmony export */   "mediaGuard": () => (/* reexport safe */ _en_mediaGuard__WEBPACK_IMPORTED_MODULE_17__["default"]),
 /* harmony export */   "modality": () => (/* reexport safe */ _en_modality__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "noShadowDom": () => (/* reexport safe */ _en_noShadowDom__WEBPACK_IMPORTED_MODULE_28__["default"]),
 /* harmony export */   "notFound": () => (/* reexport safe */ _en_notFound__WEBPACK_IMPORTED_MODULE_38__["default"]),
 /* harmony export */   "openSlideViewLeftHolder": () => (/* reexport safe */ _en_openSlideViewLeftHolder__WEBPACK_IMPORTED_MODULE_30__["default"]),
 /* harmony export */   "portal": () => (/* reexport safe */ _en_portal__WEBPACK_IMPORTED_MODULE_18__["default"]),
@@ -50,7 +51,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "title": () => (/* reexport safe */ _en_title__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "transient": () => (/* reexport safe */ _en_transient__WEBPACK_IMPORTED_MODULE_42__["default"]),
 /* harmony export */   "tunneling": () => (/* reexport safe */ _en_tunneling__WEBPACK_IMPORTED_MODULE_27__["default"]),
-/* harmony export */   "unusedShadowDom": () => (/* reexport safe */ _en_unusedShadowDom__WEBPACK_IMPORTED_MODULE_28__["default"]),
 /* harmony export */   "useMirroring": () => (/* reexport safe */ _en_useMirroring__WEBPACK_IMPORTED_MODULE_41__["default"])
 /* harmony export */ });
 /* harmony import */ var _en_install__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./en/install */ "./src/doc/lang/en/install.ts");
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _en_safeArea__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./en/safeArea */ "./src/doc/lang/en/safeArea.ts");
 /* harmony import */ var _en_globalCSSVariables__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./en/globalCSSVariables */ "./src/doc/lang/en/globalCSSVariables.ts");
 /* harmony import */ var _en_tunneling__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./en/tunneling */ "./src/doc/lang/en/tunneling.ts");
-/* harmony import */ var _en_unusedShadowDom__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./en/unusedShadowDom */ "./src/doc/lang/en/unusedShadowDom.ts");
+/* harmony import */ var _en_noShadowDom__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./en/noShadowDom */ "./src/doc/lang/en/noShadowDom.ts");
 /* harmony import */ var _en_defaultSlideViewApplets__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./en/defaultSlideViewApplets */ "./src/doc/lang/en/defaultSlideViewApplets.ts");
 /* harmony import */ var _en_openSlideViewLeftHolder__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./en/openSlideViewLeftHolder */ "./src/doc/lang/en/openSlideViewLeftHolder.ts");
 /* harmony import */ var _en_pullToRefresh__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./en/pullToRefresh */ "./src/doc/lang/en/pullToRefresh.ts");
@@ -2551,6 +2551,106 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/doc/lang/en/noShadowDom.ts":
+/*!****************************************!*\
+  !*** ./src/doc/lang/en/noShadowDom.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    title: 'UnuseShadowDom',
+    content: [
+        [
+            {
+                type: 'title',
+                value: 'UnusedShadowDom'
+            },
+            {
+                type: 'sub',
+                value: 'PresetConfig > noShadowDom'
+            },
+            {
+                type: 'text',
+                value: 'Whether the framework uses ShadowDom mode. (Preconfigured items before the app starts)'
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Types</h3>'
+            },
+            {
+                type: 'code',
+                value: `
+          <code-highlight type="ts">
+            interface PresetConfig {
+              noShadowDom?: boolean
+            }
+          </code-highlight>
+        `
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Details</h3>'
+            },
+            {
+                type: 'tips',
+                value: 'For more information about ShadowDom, check out the introduction to W3C.'
+            },
+            {
+                type: 'text',
+                value: 'If you start the application by \'createApplication\' to specify the "index" mode, the preset Applet node will be moved directly to ShadowDom, which will cause the absence of styles and dependencies outside the node (such as some dependent script event binding elements and dynamically injected global styles, etc.).'
+            },
+            {
+                type: 'text',
+                value: 'ShadowDom mode has been turned off by default, you do not need to set the change option, if you do not have the above problems, and there will be no interference between the Applets of the Slice, you can turn off the Change option, at this time the same page of the slice to produce the Applet is related to each other.'
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Example</h3>'
+            },
+            {
+                type: 'code',
+                value: `
+          <code-highlight type="ts">
+            createApplication({
+              tunneling: true,
+              applets: {
+                ...
+              }
+            })
+          </code-highlight>
+        `
+            },
+            {
+                type: 'hr'
+            },
+            {
+                type: 'text',
+                value: '<h3>Notes</h3>'
+            },
+            {
+                type: 'text',
+                value: 'This configuration is rarely used, but it would be better if you could use \'&lt;define-applet>\' instead.'
+            }
+        ]
+    ]
+});
+
+
+/***/ }),
+
 /***/ "./src/doc/lang/en/notFound.ts":
 /*!*************************************!*\
   !*** ./src/doc/lang/en/notFound.ts ***!
@@ -4788,106 +4888,6 @@ __webpack_require__.r(__webpack_exports__);
             {
                 type: 'text',
                 value: 'When the page is connected to Lath and [tunneling] is turned on, the page itself is a separate application, but when the page is embedded in another Lath application as a Applet, the page opened through the A link (i.e. pushWindow) will not be opened within the application, but will proxied to open in the parent application, if the parent application is also embedded Lath application, and also opened [tunneling] will continue to "tunnel" upwards.'
-            }
-        ]
-    ]
-});
-
-
-/***/ }),
-
-/***/ "./src/doc/lang/en/unusedShadowDom.ts":
-/*!********************************************!*\
-  !*** ./src/doc/lang/en/unusedShadowDom.ts ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-    title: 'UnuseShadowDom',
-    content: [
-        [
-            {
-                type: 'title',
-                value: 'UnusedShadowDom'
-            },
-            {
-                type: 'sub',
-                value: 'PresetConfig > unusedShadowDom'
-            },
-            {
-                type: 'text',
-                value: 'Whether the framework uses ShadowDom mode. (Preconfigured items before the app starts)'
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Types</h3>'
-            },
-            {
-                type: 'code',
-                value: `
-          <code-highlight type="ts">
-            interface PresetConfig {
-              unusedShadowDom?: boolean
-            }
-          </code-highlight>
-        `
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Details</h3>'
-            },
-            {
-                type: 'tips',
-                value: 'For more information about ShadowDom, check out the introduction to W3C.'
-            },
-            {
-                type: 'text',
-                value: 'If you start the application by \'createApplication\' to specify the "index" mode, the preset Applet node will be moved directly to ShadowDom, which will cause the absence of styles and dependencies outside the node (such as some dependent script event binding elements and dynamically injected global styles, etc.).'
-            },
-            {
-                type: 'text',
-                value: 'ShadowDom mode has been turned off by default, you do not need to set the change option, if you do not have the above problems, and there will be no interference between the Applets of the Slice, you can turn off the Change option, at this time the same page of the slice to produce the Applet is related to each other.'
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Example</h3>'
-            },
-            {
-                type: 'code',
-                value: `
-          <code-highlight type="ts">
-            createApplication({
-              tunneling: true,
-              applets: {
-                ...
-              }
-            })
-          </code-highlight>
-        `
-            },
-            {
-                type: 'hr'
-            },
-            {
-                type: 'text',
-                value: '<h3>Notes</h3>'
-            },
-            {
-                type: 'text',
-                value: 'This configuration is rarely used, but it would be better if you could use \'&lt;define-applet>\' instead.'
             }
         ]
     ]
