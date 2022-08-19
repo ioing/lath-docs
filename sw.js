@@ -1,8 +1,11 @@
+self.importScripts('cache.js');
+
 // Files to cache
 const cacheName = 'Lath-v1';
 const contentToCache = [
   '/index.html',
-  '/main.js'
+  '/main.js',
+  ...cache
 ];
 
 // Installing Service Worker
