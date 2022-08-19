@@ -1623,12 +1623,10 @@ __webpack_require__.r(__webpack_exports__);
                 type: 'code',
                 value: `
           <code-highlight type="ts">
-            declare interface ServiceWorkerInstallConfig {
-              swPathUrl?: string
+            declare interface RegistrationOptions {
               scope?: string
-              source?: Array<string>
             }
-            type install = (options: ServiceWorkerInstallConfig, version: string) => Promise&lt;ServiceWorkerRegistration>
+            type install = (scriptURL: string, options: RegistrationOptions, source: Array<string>, version: string) => Promise&lt;ServiceWorkerRegistration>
           </code-highlight>
         `
             },
