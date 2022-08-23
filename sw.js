@@ -1,7 +1,7 @@
 self.importScripts('cache.js');
 
 // Files to cache
-const cacheName = 'Lath-v1';
+const cacheName = 'Lath-v3';
 const contentToCache = [
   '/index.html',
   '/main.js',
@@ -14,6 +14,7 @@ self.addEventListener('install', (e) => {
   e.waitUntil((async () => {
     const cache = await caches.open(cacheName);
     console.log('[Service Worker] Caching all: app shell and content');
+    if (!cache) return;
     await cache.addAll(contentToCache);
   })());
 });
