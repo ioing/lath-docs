@@ -3166,17 +3166,19 @@ __webpack_require__.r(__webpack_exports__);
                 type: 'text',
                 value: `
           Demo:
-          <a href="#empty" preset-effect="slide-left" clone-as="empty-left">slide-right</a>,
-          <a href="#empty" preset-effect="slide-right" clone-as="empty-right">slide-right</a>,
-          <a href="#empty" preset-effect="slide-up" clone-as="empty-up">slide-up</a>,
-          <a href="#empty" preset-effect="slide-down" clone-as="empty-down">slide-down</a>,
-          <a href="#empty" preset-effect="zoom" clone-as="empty-zoom">zoom</a>,
-          <a href="#empty" preset-effect="flip" clone-as="empty-flip">flip</a>,
-          <a href="#empty" preset-effect="flip-left" clone-as="empty-flip-left">flip-left</a>,
-          <a href="#empty" preset-effect="flip-right" clone-as="empty-flip-right">flip-right</a>,
-          <a href="#empty" preset-effect="flip-up" clone-as="empty-flip-up">flip-up</a>,
-          <a href="#empty" preset-effect="flip-down" clone-as="empty-flip-down">flip-down</a>,
-          <a href="#empty" preset-effect="fade" clone-as="empty-fade">fade</a>
+          <ul>
+            <li><a href="#empty" preset-effect="slide-left" clone-as="empty-left">slide-right</a></li>
+            <li><a href="#empty" preset-effect="slide-right" clone-as="empty-right">slide-right</a></li>
+            <li><a href="#empty" preset-effect="slide-up" clone-as="empty-up">slide-up</a></li>
+            <li><a href="#empty" preset-effect="slide-down" clone-as="empty-down">slide-down</a></li>
+            <li><a href="#empty" preset-effect="zoom" clone-as="empty-zoom">zoom</a></li>
+            <li><a href="#empty" preset-effect="flip" clone-as="empty-flip">flip</a></li>
+            <li><a href="#empty" preset-effect="flip-left" clone-as="empty-flip-left">flip-left</a></li>
+            <li><a href="#empty" preset-effect="flip-right" clone-as="empty-flip-right">flip-right</a></li>
+            <li><a href="#empty" preset-effect="flip-up" clone-as="empty-flip-up">flip-up</a></li>
+            <li><a href="#empty" preset-effect="flip-down" clone-as="empty-flip-down">flip-down</a></li>
+            <li><a href="#empty" preset-effect="fade" clone-as="empty-fade">fade</a></li>
+          </ul>
         `
             },
             {
