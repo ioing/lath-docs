@@ -1910,7 +1910,7 @@ document.body.style.margin = '0';
 document.body.style.overflow = 'hidden';
 // Registering Service Worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw1.js');
+    navigator.serviceWorker.register('/sw2.js');
 }
 // setTimeout(() => {
 //   app.to('sheetsBottom')
@@ -4553,7 +4553,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("8b6548ef011bc0f70e89")
+/******/ 		__webpack_require__.h = () => ("fea828aae9099e5db181")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
