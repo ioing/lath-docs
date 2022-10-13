@@ -1,7 +1,7 @@
 self.importScripts('cache.js');
 
 // Files to cache
-const cacheName = 'Lath-v17';
+const cacheName = 'Lath-v18';
 const contentToCache = [
   ...cacheFiles
 ];
