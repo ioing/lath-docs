@@ -1,0 +1,5 @@
+/*!
+* lath v0.9.4
+* (c) 2022 @ioing
+* Released under the MIT License.
+*/
