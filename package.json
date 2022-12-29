@@ -15,7 +15,7 @@
     "docs/"
   ],
   "scripts": {
-    "clean": "rimraf ./dist",
+    "clean": "rimraf ./docs",
     "lint": "tslint --project tsconfig.json --format stylish",
     "build": "npm run marked && npm run clean && webpack build && node ./pwa.js",
     "debug": "node --inspect-brk dist/index.js",
