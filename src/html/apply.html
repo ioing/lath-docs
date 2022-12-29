@@ -1,0 +1,65 @@
+
+    
+      <div class="card">
+        <h1>Apply&amp;UnApply</h1>
+      
+<p><small>AppletConfig &gt; apply<small>在同源程序卡中启用可预置的能力。</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> type AppletApplyMabyeOptions = &#39;smart-setTimeout&#39; | &#39;proxy-link&#39; | &#39;tap-highlight&#39;
+            type AppletApplyOptions = Array&lt;AppletApplyMabyeOptions&gt;
+            type AppletApplyOptionsParam = {
+              &#39;tap-highlight&#39;?: {
+                selector: string
+              }
+            }
+            interface AppletBaseConfig {
+              apply?: AppletApplyOptions
+              applyOptions?: AppletApplyOptionsParam
+              unApply?: AppletApplyOptions
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>apply 预置了以下可用能力：</p>
+<pre><code>      &lt;ul&gt;
+        &lt;li&gt;**smart-setTimeout** 当程序卡窗口不可见时或正处于窗口动画过程中时，所有 setTimeout 会自动暂停执行，直到模块动画停止并可见时自动恢复执行。&lt;/li&gt;
+        &lt;li&gt;&lt;b&gt;proxy-link&lt;/b&gt; 当程序卡页面中有使用 a链接或 window.open 方法打开页面时，Lath 容器会自动进行捕捉拦截，并将页面内容生成新的程序卡，之后再进行加载展示。若 A链接设置 target=&#39;_parent&#39; 或 target=&#39;_top&#39; 时则不会进行捕获，以浏览器新开窗口打开。在 A链接中还可以设置动画效果和设置克隆为新模块 preset-effect=&quot;预置动画名&quot;，clone-as=&quot;新模块名&quot;&lt;/li&gt;
+        &lt;li&gt;&lt;b&gt;tap-highlight&lt;/b&gt; 所有 a链接 在点击时会自动添加半透明蒙层高亮提示效果&lt;/li&gt;
+      &lt;/ul&gt;
+    
+</code-highlight></div></pre>
+<blockquote>
+<p>在 A链接上使用 clone-as属性时，目的是为了让同一程序卡以多个分身打开，比如文章详情程序卡，当其参数不同时可同时以分身打开多篇文章，而不是在同一个实例中更新文章。</p>
+</blockquote>
+<p>以上选项默认均开启，若不想开启可使用 unApply 配置项。</p>
+<p>unApply 同 apply 选项相背，它将禁止配置中的预置能力。</p>
+<p>applyOptions 可针对每项能力增加可用参数，目前可为&quot;tap-highlight&quot;提供高亮选择器&quot;selector&quot;，当点击元素匹配时将增加高亮效果，同时会在元素上新增&quot;tap-highlight&quot;属性，可用作 CSS 样式自定义。</p>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                home: {
+                  config: {
+                    unApply: [&#39;proxy-link&#39;],
+                    applyOptions: {
+                      &#39;tap-highlight&#39;: {
+                        selector: &#39;.link&#39;
+                      }
+                    }
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>注意，使用“proxy-link”时不能捕捉通过“location.href”方法实现的跳转行为。</p>
+      </div>
+    

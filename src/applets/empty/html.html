@@ -1,0 +1,62 @@
+<style>
+html {
+  background: #333;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  padding-top: calc(10px + constant(safe-area-inset-top));
+  padding-top: calc(10px + env(safe-area-inset-top));
+}
+.header-inner {
+  display: flex;
+  max-width: 500px;
+  padding: 0 20px;
+}
+.placeholder {
+  width: 100%;
+  height: calc(50px + constant(safe-area-inset-top));
+  height: calc(50px + env(safe-area-inset-top));
+}
+.back-btn {
+  display: flex;
+  height: 21px;
+  cursor: pointer;
+}
+.back-icon {
+  width: 21px;
+  height: 21px;
+  background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0nMTJweCcgaGVpZ2h0PScyMnB4JyB2aWV3Qm94PScwIDAgMTIgMjInIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+PHRpdGxlPlBhdGg8L3RpdGxlPjxnIGlkPSdTeW1ib2xzJyBzdHJva2U9J25vbmUnIHN0cm9rZS13aWR0aD0nMScgZmlsbD0nbm9uZScgZmlsbC1ydWxlPSdldmVub2RkJz48ZyBpZD0nT3ZlcnJpZGVzL05hdmlnYXRpb24tQmFyL0xlZnQvQmFjay1CdXR0b24nIHRyYW5zZm9ybT0ndHJhbnNsYXRlKC05LjAwMDAwMCwgLTExLjAwMDAwMCknIGZpbGw9JyMwMDdBRkYnIGZpbGwtcnVsZT0nbm9uemVybyc+PGcgaWQ9J1Bpbi1MZWZ0JyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSg5LjAwMDAwMCwgMTEuNTAwMDAwKSc+PHBhdGggZD0nTTMuNjIxMzIwMzQsMTAuNSBMMTEuNTYwNjYwMiwyLjU2MDY2MDE3IEMxMi4xNDY0NDY2LDEuOTc0ODczNzMgMTIuMTQ2NDQ2NiwxLjAyNTEyNjI3IDExLjU2MDY2MDIsMC40MzkzMzk4MjggQzEwLjk3NDg3MzcsLTAuMTQ2NDQ2NjA5IDEwLjAyNTEyNjMsLTAuMTQ2NDQ2NjA5IDkuNDM5MzM5ODMsMC40MzkzMzk4MjggTDAuNDM5MzM5ODI4LDkuNDM5MzM5ODMgQy0wLjE0NjQ0NjYwOSwxMC4wMjUxMjYzIC0wLjE0NjQ0NjYwOSwxMC45NzQ4NzM3IDAuNDM5MzM5ODI4LDExLjU2MDY2MDIgTDkuNDM5MzM5ODMsMjAuNTYwNjYwMiBDMTAuMDI1MTI2MywyMS4xNDY0NDY2IDEwLjk3NDg3MzcsMjEuMTQ2NDQ2NiAxMS41NjA2NjAyLDIwLjU2MDY2MDIgQzEyLjE0NjQ0NjYsMTkuOTc0ODczNyAxMi4xNDY0NDY2LDE5LjAyNTEyNjMgMTEuNTYwNjYwMiwxOC40MzkzMzk4IEwzLjYyMTMyMDM0LDEwLjUgWicgaWQ9J1BhdGgnPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4=");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.back-text {
+  line-height: 23px;
+  font-size: 17px;
+  color: #007AFF;
+}
+h1 {
+  color: #fff;
+  font-size: 60px;
+  text-align: center;
+  line-height: 70vh;
+}
+</style>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="back-btn" onclick="javascript: history.back()">
+      <div class="back-icon"></div>
+      <span class="back-text">返回</span>
+    </div>
+  </div>
+</div>
+<div>
+  <h1>Hello!</h1>
+</div>

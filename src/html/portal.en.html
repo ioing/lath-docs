@@ -1,0 +1,39 @@
+
+    
+<div class="card">
+  <h1>Portal</h1>
+
+<p><small>AppletConfig &gt; portal</small></p>
+<p>When the Applet with this property is enabled, when the browser supports the portal feature, the activation operation of the portal will be performed after the transition animation ends, and the Applet page will run in a new context after activation.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  portal?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>The source configuration of the Applet should be in link mode and in the same domain as the main application.</p>
+<p>For an Applet set to portal, is [free] option should generally also be set to true.</p>
+<p>When the browser dose not support the portal capability, it will automatically downgrade to the general container mode.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        portal: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>This option is suitable for Applets with independent functions and no connection with the main application (such as apply, inject, etc.), otherwise, the configuration of these dependent contexts will be invalid.</p>
+</div>
+    

@@ -1,0 +1,34 @@
+
+    
+<div class="card">
+  <h1>PreIndex</h1>
+
+<p><small>FrameworksAppletConfig &gt; preIndex</small></p>
+<p>When accessing a Applet via a link, a pre-positioned Applet can be inserted before. (Frameworks Applet exclusive configuration)</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface FrameworksAppletConfig {
+  preIndex?: string
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When anchoring to a Applet by visiting the page url, you can set a pre-Applet through this configuration item. At this time, when accessing the url link, the anchored Applet will still be preferentially accessed, but when the browser is clicked to return, it does not exit immediately, but falls back from the anchor Applet to the front Applet inserted through this configuration item.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        preIndex: &#39;home&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<p>When the Applet anchored by the access link is equal to [preIndex] or [index], the pre-Applet will not be inserted again before.</p>
+</div>
+    

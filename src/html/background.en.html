@@ -1,0 +1,49 @@
+
+    
+<div class="card">
+  <h1>Background</h1>
+
+<p><small>AppletConfig &gt; background</small></p>
+<p>Whether the Applet is allowed to run in the background.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  background?: boolean | &#39;auto&#39;
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p><strong>value = false</strong></p>
+<p>Module transitions are destroyed immediately after the transition animation ends.</p>
+<p><strong>value = true</strong></p>
+<p>Modules are not destroyed (only if the page load succeeds); the exception is when &#39;timeout&#39; times out, before startup.</p>
+<p><strong>value = &#39;auto&#39;</strong></p>
+<p>When Automatic Mode is set, the module would intelligently determine whether to destroy, and is destroyed when the following conditions are triggered:</p>
+<ul>
+<li>When the page is set with SRC and the source is different</li>
+<li>When the page contains objects such as &#39;embed, applet, iframe&#39;</li>
+<li>When the page contains video or audio tags, and there is an error in automatically pausing playback when mediaGuard is enabled</li>
+<li>There are node churn operations in the page that occur more than 10 times in 3 seconds</li>
+<li>When the total node operations in the page run more than 1000 times in the background</li>
+</ul>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        background: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>If an Applet enters the Modality type non-full-screen Applet such as &#39;Pop Sheet&#39;, it will not be executed even if it meets the destruction conditions.</p>
+</div>
+    

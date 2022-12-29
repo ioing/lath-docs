@@ -1,0 +1,33 @@
+
+    
+      <div class="card">
+        <h1>Application.preActivityApplet</h1>
+      
+<p><small>Application.preActivityApplet<small>前一个活动的 Applet。</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> preActivityApplet: Applet
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>返回前一个来源的 Applet。</p>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> const { application } = await createApplication({
+              applets: {
+                ...
+              }
+            })
+            console.log(application.preActivityApplet)
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>程序卡的获取逻辑与<a href="?id=applicationActivityApplet#docs" preset-effect="slide" clone-as="doc-newWindow-applicationActivityApplet">Application.activeApplet</a>保持一致。</p>
+      </div>
+    

@@ -1,0 +1,37 @@
+
+    
+<div class="card">
+  <h1>Timeout</h1>
+
+<p><small>AppletConfig &gt; timeout</small></p>
+<p>The valid duration of the Applet life cycle, in milliseconds.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  timeout?: number
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When the Applet meets the cache conditions or is set to allow background running (background=true), the Applet will check the expiration status before the second entry, and will perform an update operation when it is checked that the Applet has expired.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        timeout: 36000,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>If the value is set to 0, background running (background=true) will not take effect.</p>
+</div>
+    

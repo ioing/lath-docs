@@ -1,0 +1,8 @@
+import './components/menu-icon'
+import './components/app-nav'
+import './components/header-tab'
+import './components/menu-list'
+import './components/dark-switch'
+import './components/lang-switch'
+import './components/add-to-home'
+import './components/app-switcher-button'

@@ -1,0 +1,149 @@
+<html>
+
+<head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      background: var(--background, #000);
+      font-family: 'Lato', sans-serif;
+      transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+    }
+
+    body {
+      margin: 0 8px;
+    }
+
+    .placeholder {
+      height: calc(10px + constant(safe-area-inset-top) + var(--application-safe-area-top));
+      height: calc(10px + env(safe-area-inset-top) + var(--application-safe-area-top));
+      margin-bottom: 20px;
+    }
+
+    .card {
+      min-height: 100px;
+      max-width: 520px;
+      margin: auto;
+      margin-bottom: 12px;
+      border-radius: 16px;
+      border: 0.5px solid rgba(255, 255, 255, .05);
+      background: var(--card-background, rgba(255, 255, 255, .1));
+    }
+
+    .card-title {
+      font-size: 32px;
+      font-weight: 400;
+      padding: 12px 20px 7px;
+      color: var(--card-title, rgba(255, 255, 255, .3));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card-list {
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-list a {
+      display: block;
+      position: relative;
+      font-size: 20px;
+      padding: 15px 20px;
+      list-style: none;
+      font-weight: 400;
+      color: var(--card-text-color, rgba(255, 255, 255, .92));
+      border-bottom: 0.5px solid rgba(255, 255, 255, .2);
+      border-bottom-color: var(--card-hr-color, rgba(255, 255, 255, .2));
+      align-content: space-between;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .card-list a[tap-highlight] {
+      background-color: var(--card-item-hover, rgba(255, 255, 255, .1)) !important;
+    }
+
+    @media (pointer: fine) {
+      .card-list a:hover {
+        background-color: var(--card-item-hover, rgba(255, 255, 255, .1));
+      }
+    }
+
+    .card-list a:last-child {
+      border-bottom: 0;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+
+    .card-list a:after {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      content: ' ';
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyBmaWxsPScjY2NjY2NjJyB2ZXJzaW9uPScxLjEnIGlkPSflm77lsYJfMScgeD0nMHB4JyB5PScwcHgnIHZpZXdCb3g9JzAgMCA1NCA1NCcgZW5hYmxlLWJhY2tncm91bmQ9J25ldyAwIDAgNTQgNTQnIHhtbDpzcGFjZT0ncHJlc2VydmUnPjxzY3JpcHQgeG1sbnM9JycgdHlwZT0ndGV4dC9qYXZhc2NyaXB0JyBjcm9zc29yaWdpbj0nYW5vbnltb3VzJy8+PHBhdGggZD0nTTQ0LjYsMjguNWMwLTAuMSwwLjEtMC4xLDAuMS0wLjJjMC42LTEuMywwLjQtMi45LTAuNy0zLjlMMTkuMiwwLjljLTEuNC0xLjMtMy41LTEuMi00LjgsMC4xcy0xLjIsMy41LDAuMSw0LjhsMjIuMiwyMSBMMTQuNyw0OC4yYy0xLjMsMS4zLTEuNCwzLjQtMC4xLDQuOGMwLjcsMC43LDEuNSwxLDIuNCwxYzAuOCwwLDEuNy0wLjMsMi4zLTAuOWwyNC42LTIzLjdjMCwwLDAuMS0wLjEsMC4xLTAuMmMwLDAsMC4xLTAuMSwwLjEtMC4xIEM0NC4zLDI4LjksNDQuNCwyOC43LDQ0LjYsMjguNUw0NC42LDI4LjV6Jy8+PC9zdmc+");
+    }
+
+    .card-list a span {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .3);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    p.copyright {
+      margin-top: 20px;
+      opacity: .5;
+      padding: 8px 20px;
+    }
+
+    p.copyright,
+    p.copyright a {
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--main-color, #f5f5f7);
+    }
+
+    p.copyright a {
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="placeholder"></div>
+  <div class="card">
+    <div class="card-title">Application API</div>
+    <div class="card-list">
+      <a href="?id=applicationTo#docs">to</a>
+      <a href="?id=applicationPushWindow#docs">pushWindow</a>
+      <a href="?id=applicationActivityApplet#docs">activityApplet</a>
+      <a href="?id=applicationPreActivityApplet#docs">preActivityApplet</a>
+      <a href="?id=applicationEvents#docs">on & one & off</a>
+      <a href="?id=applicationGet#docs">get & del & add</a>
+      <a href="?id=applicationExists#docs">exists</a>
+      <a href="?id=applicationUpdateSafeArea#docs">updateSafeArea</a>
+      <a href="?id=applicationUpdateGlobalCSSVariables#docs">updateGlobalCSSVariables</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Applet API</div>
+    <div class="card-list">
+      <a href="?id=appletSlideView#docs">slideView</a>
+      <a href="?id=appletView#docs">view</a>
+      <a href="?id=appletRefresh#docs">refresh</a>
+      <a href="?id=appletSameOrigin#docs">sameOrigin</a>
+      <a href="?id=appletColor#docs">color</a>
+      <a href="?id=appletEvents#docs">on & one & off</a>
+    </div>
+  </div>
+  <div class="card">
+    <p class="copyright">
+      This project is licensed under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT
+        License</a><br> Copyright © 2010-2022 LATH
+    </p>
+  </div>
+</body>
+
+</html>

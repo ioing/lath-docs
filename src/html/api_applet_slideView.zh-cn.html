@@ -1,0 +1,33 @@
+
+    
+<div class="card">
+  <h1>Applet.slide</h1>
+
+<p><small>Applet.slide</small></p>
+<p>横滑程序卡的控制对象（类似 Snap 效果）。</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface Slide {
+  to: (id: number | string) =&gt; Promise&lt;unknown&gt;
+  index: number
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>“to” 函数能够接受一个序列（对应配置项 defaultSlideViewApplets 中的 Applet 序列）/ Applet id。</p>
+<p>“index” 属性可获取当前 SlideView 上所处于激活状态的程序卡的序列。</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">const applet = await application.get(&#39;home&#39;)
+await applet.slide.to(&#39;pageA&#39;)
+console.log(applet.slide.index)
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>关于它的创建请参照配置项：DefaultSlideViewApplets。</p>
+</div>
+    

@@ -1,0 +1,39 @@
+
+    
+      <div class="card">
+        <h1>Free</h1>
+      
+<p><small>AppletConfig &gt; free</small>
+定义程序卡的窗口展示类型。</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> interface AppletBaseConfig {
+              free?: boolean
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>free 等于 true 时，程序卡以“全屏模式”运行，即不受框架程序卡（Applets[id = frameworks]）的约束。</p>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                home: {
+                  config: {
+                    free: true
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>假设 frameworks 程序卡是一个带有 tabBar 功能的模块，此时程序卡将直接覆盖整个框架程序卡运行，反之程序卡则会在框架程序卡之内运行（即表现为 tabBar 覆盖在程序卡之上）。</p>
+      </div>
+    

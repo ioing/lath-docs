@@ -1,0 +1,49 @@
+
+    
+<div class="card">
+  <h1>Background</h1>
+
+<p><small>AppletConfig &gt; background</small></p>
+<p>程序卡是否被允许在后台运行。</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  background?: boolean | &#39;auto&#39;
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p><strong>value = false</strong></p>
+<p>模块切换动画结束后会被立即销毁。</p>
+<p><strong>value = true</strong></p>
+<p>模块不会被销毁（仅当页面 load 成功时）；例外情况是当 timeout 超时时，在启动前会被销毁。</p>
+<p><strong>value = &#39;auto&#39;</strong></p>
+<p>当设置成自动时模块会进行智能的判断是否销毁，当触发以下几种情况时则会被销毁：</p>
+<ul>
+<li>页面设置了 src，且不同源时</li>
+<li>页面中包含了 object、embed、applet、iframe 对象时</li>
+<li>页面中包含了 video、audio 标签时，且开启智能媒体管理（mediaGuard）时进行自动暂停播放出错时</li>
+<li>页面中存在节点变动操作在 3 秒钟内超过 10 次时</li>
+<li>页面中总的节点操作在后台运行超过 1000 次时</li>
+</ul>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        background: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>若从该程序卡进入 “Pop Sheet&quot; 等 Modality 类型非全屏程序卡时，即便符合销毁条件也将不会执行。</p>
+</div>
+    

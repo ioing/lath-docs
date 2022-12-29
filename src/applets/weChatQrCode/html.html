@@ -1,0 +1,62 @@
+<style>
+  ul.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 7px auto 10px;
+    padding: 0;
+    list-style: none;
+    max-width: 500px;
+  }
+  ul.item-list li {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  ul.item-list li img {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    min-height: 200px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    border-radius: 16px;
+  }
+  
+  .title {
+    font-size: 48px;
+    color: #fff;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px 20px 10px;
+    font-weight: 400;
+    padding-top: calc(10px + constant(safe-area-inset-top));
+    padding-top: calc(10px + env(safe-area-inset-top));
+  }
+  .sub-title {
+    font-size: 14px;
+    color: #ddd;
+  }
+  
+  </style>
+  
+  <script>
+    function maskAsRead() {
+      try {
+        sessionStorage.setItem('firstVisit', `${Date.now()}`)
+      } catch (error) {
+        //
+      }
+    }
+  </script>
+  
+  <div style="height: 100%; overflow: hidden;">
+    <div class="title">
+      开发群
+      <div class="sub-title">公众号：请搜索“ioing”</div>
+    </div>
+    <ul class="item-list">
+      <li>
+        <img src="https://lath.dev/images/weChat.jpg" />
+      </li>
+    </ul>
+  </div>

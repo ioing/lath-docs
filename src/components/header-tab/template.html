@@ -1,0 +1,56 @@
+<style>
+  .header-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+  }
+  .word {
+    font-family: sans-serif;
+    color: var(--logo-text, rgba(255, 255, 255, 0.7));
+    font-size: 17px;
+    font-weight: normal;
+    opacity: .3;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 7px;
+    position: relative;
+    transition: all .2s ease;
+  }
+  .word.active {
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 1;
+  }
+  .word::after {
+    content: ' ';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: blue;
+    position: absolute;
+    transition: all .4s ease;
+    opacity: 0;
+  }
+  .word.active::after {
+    width: 100%;
+    opacity: 1;
+  }
+  .tab {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    display: flex;
+    align-items: baseline;
+    transition: transform .4s ease;
+  } 
+</style>
+
+<div class="header-container">
+  <div id="tab" class="tab">
+    <div id="home-btn" class="word active" to-applet="directory">HOME</div>
+    <div id="api-btn" class="word" to-applet="api">API</div>
+  </div>
+</div>

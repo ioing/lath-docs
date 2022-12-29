@@ -1,0 +1,50 @@
+
+    
+<div class="card">
+  <h1>OpenSlideViewLeftHolder</h1>
+
+<p><small>AppletConfig &gt; openSlideViewLeftHolder</small></p>
+<p>开启后，在 SlideView 效果下（defaultSlideViewApplets 配置时），最左侧边缘滑动时会允许退出应用。&#39;When enabled, under the &#39;SlideView&#39; effect (when &#39;defaultSlideViewApplets&#39; is configured), the leftmost edge will allow to exist the application when swiping.</p>
+<blockquote>
+<p>This configuration is mainly used to unblock the exit under the first history record. If the browsing history is greater than 1, there is no edge sliding blockage in most cases. If it is not enabled, the edge elasticity may occur in iOS devices when edge sliding without falling back to the previous level.</p>
+</blockquote>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  openSlideViewLeftHolder?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>该值默认为 false。</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        defaultSlideViewApplets: [
+          {
+            id: &#39;appletA&#39;,
+            activate: &#39;instant&#39;,
+          },
+          {
+            id: &#39;appletB&#39;,
+            activate: &#39;lazy&#39;,
+          },
+        ],
+        openSlideViewLeftHolder: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>When this option is turned on, it should be noted that a 20px non-feedback area will be generated on the left edge of the Applet, and this safe operating distance should be reserved during development.</p>
+</div>
+    

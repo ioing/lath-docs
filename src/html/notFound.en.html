@@ -1,0 +1,34 @@
+
+    
+<div class="card">
+  <h1>NotFound</h1>
+
+<p><small>FrameworksAppletConfig &gt; notFound</small></p>
+<p>404 Applet (frameworks Applet exclusive configuration)</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface FrameworksAppletConfig {
+  notFound?: string
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>If the requested Applet page does not exist, it will be automatically routed to the Applet, and if it is not configured, it will automatically jump to the Apple whose &quot;id&quot; is &quot;404&quot;.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        notFound: &#39;home&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<p>The 404 module is mainly used for the acceptance and statistics of abnormal access to the application.</p>
+</div>
+    

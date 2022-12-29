@@ -1,0 +1,110 @@
+
+    
+      <div class="card">
+        <h1>Modality</h1>
+      
+<p><small>AppletConfig &gt; modality</small>
+程序卡是否以模态框形式展示。</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> type ModalityType = &#39;paper&#39; | &#39;sheet&#39; | &#39;overlay&#39;
+            interface AppletBaseConfig {
+              modality?: ModalityType
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p><strong>sheet</strong> 一种从底部弹出的窗口效果。</p>
+<p><strong>paper</strong> 一种从点击区块眼神放大的窗口效果。</p>
+<p><strong>overlay</strong> 一种从底部渐变弹出的弹窗效果。</p>
+<p>类型在 config 中还提供有分别的一个自定义选项 <strong>SheetOptions</strong>，PaperOptions 和 OverlayOptions 为 SheetOptions 的子集，可使用选项有所限制。</p>
+<pre><div class="docs-code"><code-highlight type="ts"> type ModalityType = &#39;paper&#39; | &#39;sheet&#39; | &#39;overlay&#39;
+            type SheetOptions = {
+              top?: string,
+              miniCardHeight?: number | string
+              maskOpacity?: number
+              blockedHolderWidth?: number | string
+              alwaysPopUp?: boolean
+              maskClosable?: boolean
+              noHandlebar?: boolean
+              backdropColor?: string
+              stillBackdrop?: boolean
+              swipeClosable?: boolean
+              borderRadius?: number | string
+            }
+            type PaperOptions = {
+              clipTop?: string
+              maskOpacity?: number
+              swipeClosable?: boolean
+            }
+            type OverlayOptions = {
+              maskOpacity?: number
+              swipeClosable?: boolean
+            }
+            interface AppletBaseConfig {
+              modality?: ModalityType
+              sheetOptions?: SheetOptions
+            }
+</code-highlight></div></pre>
+<pre><code>      &lt;ul&gt;
+        &lt;li&gt;
+          **top**: 视图顶部距离窗口顶部的边距离距离，支持 CSS 单位。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;miniCardHeight&lt;/b&gt;: 两段式卡片，默认呈现最小尺寸窗口，在小卡呈现时背景内容不会发生缩放效果，直到向上滑打开全部。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;maskOpacity&lt;/b&gt;: 背景黑色蒙层的不透明度，默认为 0.3。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;blockedHolderWidth&lt;/b&gt;: 左侧手指边缘滑动的安全边距（边距大小会覆盖可交互区域），边界值决定了左侧滑动关闭的灵敏度。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;alwaysPopUp&lt;/b&gt;: 在窗口切换时是否始终保持弹出动画，默认为关闭，场景切换时窗口保持静止。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;maskClosable&lt;/b&gt;: 点击背景蒙层是否允许关闭窗口，默认为关闭。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;noHandlebar&lt;/b&gt;: 不展示默认的滑动控制手柄，可能你需要在内部视图中重新定义该外观。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;backdropColor&lt;/b&gt;: 当背景程序卡缩放时所呈现的衬底颜色。
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;b&gt;swipeClose&lt;/b&gt;: 手指从中间横向滑动时可操作卡片关闭。
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    
+</code-highlight></div></pre>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                pageA: {
+                  config: {
+                    modality: &#39;sheet&#39;
+                    sheetOptions: {
+                      top: &#39;10%&#39;,
+                      miniCardHeight: &#39;30vh&#39;,
+                      maskOpacity: 0.5,
+                      blockedHolderWidth: 20,
+                      alwaysPopUp: false,
+                      maskClosable: true
+                    }
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>注意 sheetOptions 选项是 modality 选项为 &#39;sheet&#39; 时的进一步特性描述，需配合使用，单独使用时无效。</p>
+      </div>
+    

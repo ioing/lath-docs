@@ -1,0 +1,68 @@
+
+    
+<div class="card">
+  <h1>Source</h1>
+
+<p><small>AppletConfig &gt; source</small></p>
+<p>Define the HTML source code for the applet, which will run inside the container created by Lath.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  source?: EitherOr&lt;
+    {
+      src?: string
+      html?: string | (() =&gt; Promise&lt;string&gt; | string)
+    },
+    &#39;src&#39;,
+    &#39;html&#39;
+  &gt;
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>Can be divided into Source Mode and Link Mode.</p>
+<hr>
+<h3>Example</h3>
+
+<p><strong>Source Mode</strong></p>
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        title: &#39;Home Page&#39;,
+        source: {
+          html: `
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;&lt;/head&gt;
+            &lt;body&gt;
+              Hello World!
+            &lt;/body&gt;
+            &lt;/html&gt;
+            `,
+        },
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<p><strong>Link Mode</strong></p>
+<pre><div class="docs-code"><code-highlight type="js">export default {
+  config: {
+    title: &#39;Home Page&#39;,
+    source: {
+      src: &#39;http://yoursite.com&#39;,
+    },
+  },
+}
+</code-highlight></div></pre>
+<p>Choose one of the two modes. And if they coexist, the src Link Mode will take precedence.</p>
+<hr>
+<h3>Notes</h3>
+
+<blockquote>
+<p>When using Link Mode, you need to comply with the same-origin policy, otherwise some capabilities will not be enabled, such as Capture, Apply, Inject, etc. If you need to use these features, you need to also connect the target page to Lath and turn on the &#39;tunneling&#39; mode, which can be referred to &quot;PresetConfig &gt; tunneling&quot;.</p>
+</blockquote>
+</div>
+    

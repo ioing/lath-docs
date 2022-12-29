@@ -1,0 +1,58 @@
+<style>
+ul.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 7px auto 10px;
+  padding: 0;
+  list-style: none;
+  max-width: 500px;
+}
+ul.item-list li {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+ul.item-list li img {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #555;
+  min-height: 400px;
+}
+
+.title {
+  font-size: 48px;
+  color: #333;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 20px 20px 10px;
+  font-weight: 400;
+}
+.sub-title {
+  font-size: 14px;
+  color: #555;
+}
+
+</style>
+
+<script>
+  function maskAsRead() {
+    try {
+      sessionStorage.setItem('firstVisit', `${Date.now()}`)
+    } catch (error) {
+      //
+    }
+  }
+</script>
+
+<div style="height: 100%; overflow: hidden;">
+  <div class="title">
+    赞助
+    <div class="sub-title">您的认可让我们持续保持创新，感谢赞助！</div>
+  </div>
+  <ul class="item-list">
+    <li>
+      <img src="https://lath.dev/images/weChatPay.JPG" />
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+
+    
+      <div class="card">
+        <h1>Timeout</h1>
+      
+<p><small>AppletConfig &gt; timeout</small>
+程序卡生命周期的有效时长，单位为毫秒。</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> interface AppletBaseConfig {
+              timeout?: number
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>程序卡符合缓存条件或设置为允许背景运行(background=true)时，程序卡在二次进入前会检查过期情况，当检查到程序卡已过期时将会进行更新操作。</p>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                home: {
+                  config: {
+                    timeout: 36000
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>若该值设置为 0 时，则背景运行(background=true)将不会生效。</p>
+      </div>
+    

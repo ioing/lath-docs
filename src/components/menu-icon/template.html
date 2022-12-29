@@ -1,10 +1,9 @@
 <style>
 :host {
-  width: 15px;
+  width: 17px;
 }
 
 #m {
-  margin: 0;
   width: inherit;
   position: relative;
   display: inline-block;
@@ -19,8 +18,9 @@
   cursor: var(--menu-button-cursor, default);
   transition: all 0.2s ease-in-out;
   -webkit-tap-highlight-color: transparent;
-  --menu-button-color: #fff;
   opacity: 0.8;
+  border: 10px solid transparent;
+  margin: -4px -10px;
 }
 
 /* this trick makes the height 75% of the width (4:3 ratio) */
@@ -39,9 +39,9 @@
 #m span {
   display: block;
   position: absolute;
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: var(--menu-button-color, #000000);
+  background: var(--menu-button-color, #fff);
   border-radius: 0.5px;
   opacity: 1;
   left: 0;
@@ -63,10 +63,12 @@
 #m span:nth-child(2),
 #m span:nth-child(3) {
   top: 40%;
+  width: 80%;
 }
 
 #m span:nth-child(4) {
   top: 80%;
+  width: 60%;
 }
 
 :host([open]) #m span:nth-child(1) {
@@ -80,6 +82,7 @@
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+  width: 100%;
 }
 
 :host([open]) #m span:nth-child(3) {
@@ -87,6 +90,7 @@
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  width: 100%;
 }
 
 :host([open]) #m span:nth-child(4) {

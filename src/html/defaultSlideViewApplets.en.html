@@ -1,0 +1,107 @@
+
+    
+<div class="card">
+  <h1>DefaultSlideViewApplets</h1>
+
+<p><small>AppletConfig &gt; defaultSlideViewApplets</small></p>
+<p>The slideView for the Snap transition effect, we call it SlideView.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">type SlideViewApplets = Array&lt;{
+  id: string
+  activate: &#39;lazy&#39; | &#39;instant&#39; | &#39;passive&#39;
+}&gt;
+interface AppletBaseConfig {
+  defaultSlideViewApplets?: SlideViewApplets
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>&#39;id&#39; indicates the name of the Applet to be loaded.
+&#39;activate&#39; indicates the activation type of the Applet, which is divided into the following three types:</p>
+<ul>
+<li>lazy: Load Applet page content when the browser is idle.</li>
+<li>instant: Instantly loads the Applet page content.</li>
+<li>passive: Load the Applet page content when activated.</li>
+</ul>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        defaultSlideViewApplets: [
+          {
+            id: &#39;appletA&#39;,
+            activate: &#39;instant&#39;,
+          },
+          {
+            id: &#39;appletB&#39;,
+            activate: &#39;lazy&#39;,
+          },
+        ],
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>Applet with &#39;defaultSlideViewApplets&#39; will no longer have their own views (except frameworks Applet), but other Applet views are nested within them, so this configuration conflicts with [source] and should not be set at the same time.</p>
+<blockquote>
+<p>In addition, use &quot;API-Applet.slide.to&quot; to slide the slideView to the specified Applet position.</p>
+</blockquote>
+
+</div>
+<div class="card">
+  <h1>OpenSlideViewLeftHolder</h1>
+
+<p><small>AppletConfig &gt; openSlideViewLeftHolder</small></p>
+<p>When enabled, under the &#39;SlideView&#39; effect (when &#39;defaultSlideViewApplets&#39; is configured), the leftmost edge will allow to exit the application when swiping.</p>
+<blockquote>
+<p>This configuration is mainly used to unblock the exit under the first history record. If the browsing history is greater than 1, there is no edge sliding blockage in most cases. If it is not enabled, only edge elasticity is triggered and it will not go back to the previous level when edge sliding may occur in iOS devices.</p>
+</blockquote>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  openSlideViewLeftHolder?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>The default value is false.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        defaultSlideViewApplets: [
+          {
+            id: &#39;appletA&#39;,
+            activate: &#39;instant&#39;,
+          },
+          {
+            id: &#39;appletB&#39;,
+            activate: &#39;lazy&#39;,
+          },
+        ],
+        openSlideViewLeftHolder: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>When this option is turned on ,it should be noted that a 20px non-feedback area will be generated on the left edge of the Applet, and this safe operating distance should be reserved during development.</p>
+</div>
+    

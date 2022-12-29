@@ -1,0 +1,55 @@
+
+    
+<div class="card">
+  <h1>Sandbox</h1>
+
+<p><small>AppletConfig &gt; sandbox</small></p>
+<p>Sandbox restrictions for Applet containers.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">type SandboxOptions = Array&lt;
+  | &#39;allow-same-origin&#39;
+  | &#39;allow-scripts&#39;
+  | &#39;allow-forms&#39;
+  | &#39;allow-modals&#39;
+  | &#39;allow-orientation-lock&#39;
+  | &#39;allow-popups&#39;
+  | &#39;allow-pointer-lock&#39;
+  | &#39;allow-popups-to-escape-sandbox&#39;
+  | &#39;allow-presentation&#39;
+  | &#39;allow-top-navigation&#39;
+  | &#39;allow-top-navigation-by-user-activation&#39;
+  | &#39;allow-downloads-without-user-activation&#39;
+  | &#39;allow-storage-access-by-user-activation&#39;
+  | &#39;allow-top-navigation-by-user-activation&#39;
+  | string
+&gt;
+interface AppletBaseConfig {
+  sandbox?: SandboxOptions
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>This option is only available for Applets that have the [source] option set.</p>
+<p>For more information on Sandbox, please refer to the W3C definition.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        sandbox: &#39;allow-modals&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>If your Applet page is a third-party link, you can use this option to restrict its unnecessary permissions for security reasons.</p>
+</div>
+    

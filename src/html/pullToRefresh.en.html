@@ -1,0 +1,41 @@
+
+    
+<div class="card">
+  <h1>PullToRefresh</h1>
+
+<p><small>AppletConfig &gt; pullToRefresh</small></p>
+<p>When enabled, a seamless page refresh will be triggered when the main scroll container continues to pull down gestures.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  pullToRefresh?: boolean
+  pullToRefreshTargetScrollId?: string
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>The premise of enabling this option is that &quot;FrameworksApplet&quot; also enables this option, otherwise it will not take effect.</p>
+<p>Pull-to-refresh will be associated with a scroll container, the container &quot;id&quot; can be specified by &quot;pullToRefreshTargetScrollId&quot;.</p>
+<p>If no container is specified, it will be associated with the main scroll container by default. For the main scroll bar, please refer to the configuration item &quot;mainScrollID&quot;.By default, the main scroll is associated with the &lt;define-applet&gt; container of the Applet.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        pullToRefresh: true,
+        pullToRefreshTargetScrollId: &#39;root&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>Note the specified scroll container &quot;id&quot; cannot exist in ShadowDom.</p>
+</div>
+    

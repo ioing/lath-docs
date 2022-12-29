@@ -1,0 +1,37 @@
+
+    
+<div class="card">
+  <h1>SingleFlow</h1>
+
+<p><small>FrameworksAppletConfig &gt; singleFlow</small></p>
+<p>Turn on historical hierarchical flow direction control. (Frameworks Applet exclusive configuration)</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface FrameworksAppletConfig {
+  singleFlow?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>Only the historical fallback direction of the Applet is allowed to fall back to the Applet with a smaller level, if the returned Applet level is greater than or equal to the current Applet level, the Applet is directly skipped and continues to return to the earlier Applet in the history until the conditions are met.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        singleFlow: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>For example, from the Applet that generates the order function to the Applet that pays the order, after the successful payment enters the &#39;My Order Module Applet&#39;, when it is completed to roll back, it can be returned directly to the order card by opening the configuration item and combining the Applet level rules, so that it can directly return to the order to generate the Applet, without going through the various Applets in the order completion process.</p>
+</div>
+    

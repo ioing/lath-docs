@@ -1,0 +1,113 @@
+
+    
+      <div class="card">
+        <h1>DefaultSlideViewApplets</h1>
+      
+<p><small>AppletConfig &gt; defaultSlideViewApplets</small>
+Snap 切换效果的程序坞，我们称之为 SlideView。</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> type SlideViewApplets = Array&lt;{
+              id: string,
+              activate: &#39;lazy&#39; | &#39;instant&#39; | &#39;passive&#39;
+            }&gt;
+            interface AppletBaseConfig {
+              defaultSlideViewApplets?: SlideViewApplets
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>“id”表示要被加载的程序卡名</p>
+<p>“activate”表示程序卡的激活类型，共分为以下三种：</p>
+<pre><code>      &lt;ul&gt;
+        &lt;li&gt;lazy: 在浏览器空闲时加载 Applet 页面内容。&lt;/li&gt;
+        &lt;li&gt;instant: 即刻加载 Applet 页面内容。&lt;/li&gt;
+        &lt;li&gt;passive: 在被激活时加载 Applet 页面内容。&lt;/li&gt;
+      &lt;/ul&gt;
+    
+</code-highlight></div></pre>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+            applets: {
+              frameworks: {
+                config: {
+                  defaultSlideViewApplets: [
+                    {
+                      id: &quot;appletA&quot;,
+                      activate: &#39;instant&#39;
+                    },
+                    {
+                      id: &quot;appletB&quot;,
+                      activate: &#39;lazy&#39;
+                    }
+                  ]
+                }
+              }
+            }
+          })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>设定 defaultSlideViewApplets 的程序卡将不再具有自身的视图（frameworks Applet 除外），而是其中嵌套了其它的程序卡视图，因此该配置与[source]相冲突，不应同时设置。</p>
+<blockquote>
+<p>另外使用“API-Applet.slide.to”可使程序坞滑动到到指定程序卡位置。</p>
+</blockquote>
+
+      </div>
+      <div class="card">
+        <h1>OpenSlideViewLeftHolder</h1>
+      
+<p><small>AppletConfig &gt; openSlideViewLeftHolder</small>
+开启后，在 SlideView 效果下（defaultSlideViewApplets 配置时），最左侧边缘滑动时会允许退出应用。</p>
+<blockquote>
+<p>该配置主要用于解除在首条历史记录下的退出受阻，若浏览历史记录大于 1 时则大多情况下不存在边缘滑动受阻的情况，若不开启则，在 ios 设备中可能出现边缘滑动时仅会触发边缘弹性，而不会回退到上一级。</p>
+</blockquote>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> interface AppletBaseConfig {
+              openSlideViewLeftHolder?: boolean
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>该值默认为 false。</p>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                home: {
+                  config: {
+                    defaultSlideViewApplets: [
+                      {
+                        id: &quot;appletA&quot;,
+                        activate: &#39;instant&#39;
+                      },
+                      {
+                        id: &quot;appletB&quot;,
+                        activate: &#39;lazy&#39;
+                      }
+                    ],
+                    openSlideViewLeftHolder: true
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>开启该选项后需要注意程序卡左侧边缘将产生 20px 的无反馈区域，开发时应注意预留该安全操作距离。</p>
+      </div>
+    

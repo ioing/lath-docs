@@ -1,0 +1,38 @@
+
+    
+<div class="card">
+  <h1>Prerender</h1>
+
+<p><small>AppletConfig &gt; prerender</small></p>
+<p>Preloading &amp; pre-rendering of Applets.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  prerender?: Array&lt;string&gt;
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>If there are links to other Applet in the current Applet, and you want to preload these Applets, you can set this property. The page will preload the dependent Applet in the background when it is idle, including the preloading of static resources such as CSS and JS in the document.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      prerender: [${AppletName}, ${AppletName}]
+    }
+  }
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>When the preload is executed, the loading of the static resources of the internal link will be saved when the user accesses the Applet, but the dynamic data request of the script will not be advanced. If you want to load the data in advance, you need to use it with the previous Applet. The [inject] capability or the &#39;postMessage&#39; capability is prepended.</p>
+<blockquote>
+<p>Under &#39;prerender&#39; condition, the browser cannot complete the pre-rendering work, and its current capability expression is closer to &#39;prefetch&#39;. However, we hope to reserve the pre-rendering capability in the future, so it still retains this option as &#39;prerender&#39;.</p>
+</blockquote>
+</div>
+    

@@ -1,0 +1,38 @@
+
+    
+<div class="card">
+  <h1>SingleLock</h1>
+
+<p><small>FrameworksAppletConfig &gt; singleLock</small></p>
+<p>When an Applet falls back to the program exit (level === 0 Applet),the organization history continues to fallback when the return operation is performed.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface FrameworksAppletConfig {
+  singleLock?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When a fallback is locked, continuing to fallback begins recording the number of fallbacks and can be used to decide whether the Applet is allowed to exit through the [holdBack] configuration in &#39;frameworks Applets&#39;.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        singleLock: true,
+        holdBack: (event) =&gt; {
+          // Determine whether to exit
+          return true
+        },
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<p>As configured above, when jumping from other pages to the application, when the browser back button is clicked, it will not exit the application page, but will be judged whether it should be exited through the [holdBack] configuration in frameworks applet, and the number of times the user clicks the back button is returned.</p>
+</div>
+    

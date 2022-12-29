@@ -1,0 +1,37 @@
+
+    
+<div class="card">
+  <h1>TapStatusBarToScrollToTop</h1>
+
+<p><small>AppletConfig &gt; tapStatusBarToScrollToTop</small></p>
+<p>When turned on, when you click on the status bar at the top of the window, the main scroll container scrolls to the top.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  tapStatusBarToScrollToTop?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>This option will be reflected on the main scroll, the main scroll bar refers to the configuration item &quot;mainScrollID&quot;, the default main scroll is associated as the &#39;body&#39; container of the Applet.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        tapStatusBarToScrollToTop: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>The launch of this option depends on the configuration item &quot;mainScrollID&quot;.</p>
+</div>
+    

@@ -1,0 +1,41 @@
+
+    
+<div class="card">
+  <h1>Color</h1>
+
+<p><small>AppletConfig &gt; color</small></p>
+<p>Define the initial window background color of the Applets.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  color?: string
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>The default background color can present a good visual transition when the Applet is not loaded.</p>
+<p>The default value automatically fills in black/white based on whether the browser is in &#39;Dark Mode&#39;.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        color: &#39;#000&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>Please choose an appropriate background color to fill the Applet window to ensure visual consistency.</p>
+<blockquote>
+<p>When the background color does not match the Applet content, the user is likely to see a flicker.</p>
+</blockquote>
+</div>
+    

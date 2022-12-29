@@ -1,0 +1,68 @@
+
+    
+<div class="card">
+  <h1>Source</h1>
+
+<p><small>AppletConfig &gt; source</small></p>
+<p>定义程序卡的 HTML 源代码，该源代码将在 Lath 创建的容器内运行。</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  source?: EitherOr&lt;
+    {
+      src?: string
+      html?: string | (() =&gt; Promise&lt;string&gt; | string)
+    },
+    &#39;src&#39;,
+    &#39;html&#39;
+  &gt;
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>可设置为源码模式与链接模式两种模式。</p>
+<hr>
+<h3>Example</h3>
+
+<p><strong>源码模式</strong></p>
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        title: &#39;Home Page&#39;,
+        source: {
+          html: `
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;&lt;/head&gt;
+            &lt;body&gt;
+              Hello World!
+            &lt;/body&gt;
+            &lt;/html&gt;
+            `
+        },
+        ...
+      }
+    },
+    ...
+  }
+})
+</code-highlight></div></pre>
+<p><strong>链接模式</strong></p>
+<pre><div class="docs-code"><code-highlight type="js">export default {
+  config: {
+    title: &#39;Home Page&#39;,
+    source: {
+      src: &#39;http://yoursite.com&#39;,
+    },
+  },
+}
+</code-highlight></div></pre>
+<p>两种模式选其一，若共存时将以 src 链接模式优先。</p>
+<hr>
+<h3>Notes</h3>
+
+<p>使用链接模式时需符合同源策略，否者某些能力将无法开启，比如 Capture、Apply、Inject 等。若需要使用这些特性，则需要将目标页面也同样接入 lath，并开启“隧穿”模式，可参考“PresetConfig &gt; tunneling”。</p>
+</div>
+    

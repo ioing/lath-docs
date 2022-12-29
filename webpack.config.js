@@ -3,17 +3,19 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const mode = 'development'
+// const mode = 'development'
+const mode = 'production'
 const entrys = {
   main: './src/index.ts'
 }
 
 module.exports = {
   mode: mode,
-  devtool: 'source-map',
+  devtool: "cheap-module-source-map",
+  // devtool: 'source-map',
   entry: entrys,
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './docs'),
     filename: '[name].js'
   },
   resolve: {
@@ -29,6 +31,10 @@ module.exports = {
       {
         test: /\.html$/i,
         use: 'text-loader'
+      },
+      {
+        test: /\.css$/i,
+        use: 'text-loader'
       }
     ]
   },
@@ -38,7 +44,7 @@ module.exports = {
       title: 'Lath'
     }),
   ],
-  devServer:{
+  devServer: {
     host: ip.address(),
     hot: true,
     open: true

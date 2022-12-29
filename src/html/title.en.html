@@ -1,0 +1,39 @@
+
+    
+<div class="card">
+  <h1>title</h1>
+
+<p><small>AppletConfig &gt; title</small></p>
+<p>Applet titles, mainly used for the display of browser window titles.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  title?: string
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When the window is switched, the configuration item acts as the Title tab in the page.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        title: &#39;Home Page&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<blockquote>
+<p>When the system Applets, framework Applets and home page Applets are set to title at the same time, their display weights are: home page &gt; framework &gt; system. In fact, this option for the system type Applet is unnecessary because it never takes effect.</p>
+</blockquote>
+</div>
+    

@@ -1,0 +1,44 @@
+
+    
+<div class="card">
+  <h1>Inject</h1>
+
+<p><small>AppletConfig &gt; inject</small></p>
+<p>When it is a same-origin Applet page, the set global varialbles and methods can be injected into the Applet page before the Applet page is loaded, such as injecting some &#39;JSBridge&#39;, common variables or rewriting global objects.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  inject?: (w: Window, m: Applet) =&gt; void
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>For example, the link jump in the Applet is carried out through &#39;JSBridge&#39;, so Lath cannot automatically capture it, so now you want to rewrite the logic, then you can use this option to rewrite it.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        inject: (appletWindow, applet) =&gt; {
+          appletWindow.open = (url) =&gt; {
+            return applet.application.pushWindow(url).catch(() =&gt; {
+              window.open(url)
+            })
+          }
+        },
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>It should be noted that the &#39;inject&#39; option is restricted by the same domain, so it cannot be used in cross-domain scenarios.</p>
+<p>&#39;injcect&#39; is a powerful capability, and you can develop incredible capabilities based on it.</p>
+</div>
+    

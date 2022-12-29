@@ -1,0 +1,38 @@
+
+    
+<div class="card">
+  <h1>HoldBack</h1>
+
+<p><small>FrameworksAppletConfig &gt; holdBack</small></p>
+<p>Prevent the main program from exiting. (Frameworks Applet exclusive configuration)</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface FrameworksAppletConfig {
+  holdBack?: (backoutCount: number) =&gt; boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>It is valid when [singleLock] is turned on. When the user performs a return operation and the page is about to exit, it will be verified through this function (if it is blocked, &#39;backCount&#39; is the number of clicks to return). When it returns &#39;true&#39;, it prevents the application page from exiting. Otherwise, the direct exit of the application will be allowed.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        singleLock: true,
+        holdBack: (event) =&gt; {
+          // decide whether to quit
+          return true
+        },
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<p>As configured above, when jumping from other pages to enter the application, when you click the browser back button, you will not exit the application page, but will judge whether it should be exited through the [holdBack] configuration in the &#39;Frameworks Applet&#39;, and return the back button clicked times to the user at the same time.</p>
+</div>
+    

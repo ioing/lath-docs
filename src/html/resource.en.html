@@ -1,0 +1,59 @@
+
+    
+<div class="card">
+  <h1>Resource</h1>
+
+<p><small>AppletManifest &gt; resource</small></p>
+<p>Static resources that the Applet depends on when it runs.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletResources {
+  script?: Array&lt;string&gt;
+  image?: Array&lt;string&gt;
+  worker?: Array&lt;string&gt;
+  video?: Array&lt;string&gt;
+  audio?: Array&lt;string&gt;
+  font?: Array&lt;string&gt;
+  style?: Array&lt;string&gt;
+  html?: Array&lt;string&gt;
+}
+interface AppletManifest {
+  resource?: AppletResources
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When switching from the current Applet to the next Applet, if the current Applet is configured with pre-rendering dependencies (prerender=[${nextApplet}]), the static resources are preloaded before the new Applet is loaded, such as the &#39;script&#39;, &#39;css tags&#39; in HTML, etc., do not need to be declared and configured for the static resources of these internal links, but for the content dynamically loaded through scripts during the running of the page, such as fonts in CSS, dynamically generated media materials, etc., The preloading cannot be completed. At this time, the resources that may be loaded can be preloaded through the resource configuration item.</p>
+<p>The Applet hierarchy will also reflect the effect of the transition animation, from small to large, it is a forward animation; and vice versa, from large to small, it is a reverse animation.</p>
+<p>When the history rolls back to the Applet with level 0, the singleLock event will be triggered. For details, please refer to the relevant description in the [singleLock] configuration.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                home: {
+                  resource: [
+                    image: [
+                      &#39;https://yourCDN.com/001.jpg&#39;,
+                      &#39;https://yourCDN.com/002.jpg&#39;,
+                      &#39;https://yourCDN.com/003.jpg&#39;
+                    ]
+                  ],
+                  config: {
+                    title: &#39;Home Page&#39;
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>The preload work is not performed immediately, but is loaded sequentially when the browser is idle.</p>
+<blockquote>
+<p>Unknown types that do not exist in the AppletResources type can try preloading with the script type.</p>
+</blockquote>
+</div>
+    

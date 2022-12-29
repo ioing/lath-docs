@@ -1,0 +1,37 @@
+
+    
+<div class="card">
+  <h1>Free</h1>
+
+<p><small>AppletConfig &gt; free</small></p>
+<p>Define the window display type of the APPLETS.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  free?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When free equals true, the APPLET runs in &#39;full-screen mode&#39;, that is, it&#39;s not bound by the framework card.(Applets[id = frameworks]).</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        free: true,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>Suppose the framework card is a module with tabBar function, at this time the applet will directly cover the entire framework card to run, otherwise the applet will run inside the framework card. (That is, the tabBar is overridden on the framework card).</p>
+</div>
+    

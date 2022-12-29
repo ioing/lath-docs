@@ -1,0 +1,65 @@
+
+    
+<div class="card">
+  <h1>Apply&amp;UnApply</h1>
+
+<p><small>AppletConfig &gt; apply</small></p>
+<p>Enable presetable capabilities in the same-origin Applet.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">type AppletApplyMabyeOptions =
+  | &#39;smart-setTimeout&#39;
+  | &#39;proxy-link&#39;
+  | &#39;tap-highlight&#39;
+type AppletApplyOptions = Array&lt;AppletApplyMabyeOptions&gt;
+type AppletApplyOptionsParam = {
+  &#39;tap-highlight&#39;?: {
+    selector: string
+  }
+}
+interface AppletBaseConfig {
+  apply?: AppletApplyOptions
+  applyOptions?: AppletApplyOptionsParam
+  unApply?: AppletApplyOptions
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>&#39;apply&#39; presets the following available capabilities:</p>
+<ul>
+<li><strong>smart-setTimeout</strong> When the Applet window is not visible or is in the process of window animation, all &#39;setTimeout&#39; will automatically pause execution until the module animation stops and automatically resumes execution.</li>
+<li><strong>proxy-link</strong> When the &#39;a link&#39; or the &#39;window.open&#39; method is used to open the page in the Applet page, the Lath container will automatically capture and intercept, and generate a new Applet from the page content, and then load and display it. If the &#39;a link&#39; is set with target=&#39;_parent&#39; or target=&#39;_top&#39;, it will not be captured and will be opened in a new browser window. In the &#39;a link&#39;, you can also set the animation effect and set the clone as a new module preset-effect=&quot;preset animation name&quot;, clone-as=&quot;new module name&quot;</li>
+<li><strong>tap-highlight</strong> All &#39;a links&#39; will automatically add a translucent mask highlighting effect when clicked.</li>
+</ul>
+<blockquote>
+<p>When using the &#39;clone-as&#39; attribute on the &#39;a link&#39;, the purpose is to allow the same Applet to be opened with multiple avatars, such as the article details Applet. When its parameters are different, multiple articles can be opened with avatars at the same time, rather than in the same instance to update the article.</p>
+</blockquote>
+<p>The options above are enabled by default. If you do not want to enable them, you can use the &#39;unApply&#39; configuration item.</p>
+<p>&#39;unApply&#39; is the opposite of the &#39;apply&#39; option, which disables the ability to preconfigure in the configuration.</p>
+<p>&#39;applyOptions&#39; can add available parameters for each capability. Currently, a highlight selector &quot;selector&quot; can be provided for &quot;tap-highlight&quot;. When the click element matches, the highlight effect will be added, and &quot;tap-highlight&quot; will be added to the element. Properties that can be used for CSS style customization.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    home: {
+      config: {
+        unApply: [&#39;proxy-link&#39;],
+        applyOptions: {
+          &#39;tap-highlight&#39;: {
+            selector: &#39;.link&#39;,
+          },
+        },
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>Note that using &quot;proxy-link&quot; does not capture the jump behavior implemented by the &quot;location.href&quot; method.</p>
+</div>
+    

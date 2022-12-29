@@ -1,28 +1,72 @@
-import { Application } from 'lath/app'
-import frameworksConfig from './frameworks/minify'
-import home from './home/minify'
-import doc from './doc/minify'
-import empty from './empty/minify'
-import './components/menu-icon'
-import './components/app-nav'
-import './components/app-logo'
-import './components/menu-list'
+import { createApplication } from 'lath'
+import frameworksManifest from './applets/frameworks/manifest'
+import home from './applets/home/manifest'
+import directory from './applets/directory/manifest'
+import tutorial from './applets/tutorial/manifest'
+import api from './applets/api/manifest'
+import docs from './applets/docs/manifest'
+import weChatQrCode from './applets/weChatQrCode/manifest'
+import empty from './applets/empty/manifest'
+import system from './applets/system/manifest'
+import news from './applets/news/manifest'
+import weChatPay from './applets/wechatPay/manifest'
+import './webComponents'
+import mainHTML from './mainHTML'
+import { Application } from 'lath/app/typings/types'
 
-// docs
-const app = new Application()
-app.setting({
-  modules: {
-    home,
-    frameworks: frameworksConfig,
-    doc,
-    empty
+document.body.innerHTML = mainHTML
+
+// 设置浏览器默认语言为文档语言
+try {
+  if (!localStorage.getItem('__lang__')) {
+    localStorage.setItem('__lang__', navigator.language)
   }
+} catch (error) {
+  //
+}
+
+createApplication({
+  zIndex: 1,
+  applets: {
+    home,
+    directory,
+    tutorial,
+    frameworks: frameworksManifest,
+    docs,
+    api,
+    empty,
+    system,
+    news,
+    weChatQrCode,
+    weChatPay
+  }
+}).then((application: Application) => {
+  window.lathApp = application
+  // try {
+  //   if ("ontouchstart" in document.documentElement && !sessionStorage.getItem('firstVisit')) {
+  //     setTimeout(() => {
+  //       if (confirm('Check out the latest progress of the project now?')) {
+  //         application.to('news')
+  //       }
+  //     }, 6000)
+  //   }
+  // } catch (error) {
+  //   //
+  // }
 })
 
-document.documentElement.style.background = '#000'
-document.body.style.background = '#000'
-
-app.start()
-window['app'] = app
+// Registering Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+  // Chrome Dev Tools - Update on Reload
+  let refreshing = false
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) {
+      return
+    }
+    refreshing = true
+    window.location.reload()
+  })
+}
 
 // ;(function () { const script = document.createElement('script'); script.src = '//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { window['eruda'].init() } })();

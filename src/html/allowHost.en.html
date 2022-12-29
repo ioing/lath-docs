@@ -1,0 +1,39 @@
+
+    
+<div class="card">
+  <h1>AllowHost</h1>
+
+<p><small>frameworksAppletConfig &gt; allowHost</small></p>
+<p>When [capture] is not set, insecure host addresses can be filtered out by this configuration, and vice versa. （frameworks Applet exclusive configuration)</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface AppletBaseConfig {
+  allowHost?: Array&lt;string&gt;
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>This configuration is mainly used to prevent the application from accessing foreign websites as expected by splicing url parameters to prevent harm.</p>
+<p>This configuration is ignored when the frameworks module has [capture] set.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  applets: {
+    frameworks: {
+      allowHost: [&#39;aaa.com&#39;, &#39;bbb.com&#39;, &#39;ccc.com&#39;],
+    },
+  },
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>Generally, the jump behavior of A link in the Applet page will be automatically captured as a new window in the application to open, but sometimes this is not expected in all cases, so this option can be used to control an effective domain, when the domain does not match, it will not open a new window in the application, but directly open a new browser window for access.</p>
+<blockquote>
+<p>If your application may have accessible addresses entered by the user, you will most likely need this configuration to force new pages to be accessed as a new browser window.</p>
+</blockquote>
+</div>
+    

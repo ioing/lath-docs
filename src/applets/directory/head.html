@@ -1,0 +1,1165 @@
+<head>
+  <style>
+    #figure {
+      margin: 20px auto;
+      padding-bottom: 12px;
+      overflow: hidden;
+      max-width: 520px;
+      border-radius: 16px;
+      border: 0.5px solid rgba(255, 255, 255, .05);
+      background: var(--card-background, rgba(255, 255, 255, .1));
+      min-height: 500px;
+    }
+    
+    .iconContainer {
+      margin: 17% 20px;
+      padding: 20px;
+      animation: zoom .6s ease-in;
+    }
+    
+    .icon {
+      width: 220px;
+      height: 220px;
+      background: #252525;
+      border-radius: 60px;
+      margin: 0 auto;
+      position: relative;
+      box-shadow: 0px 3px 7px -1px rgba(0, 0, 0, .3);
+      text-align: center;
+      padding-top: 11px;
+      box-sizing: border-box;
+      background: linear-gradient(to bottom, #252525, #181818);
+      transform: scale(1);
+      transition: all 0.6s ease;
+      overflow: hidden;
+    }
+    
+    .circle {
+      width: 185px;
+      height: 185px;
+      background: #252525;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -92px;
+      margin-top: -92px;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    #logoText {
+      position: absolute;
+      color: #fff;
+      font-size: 60px;
+      top: -10px;
+      width: 100%;
+      text-align: center;
+      animation: 5s ease-in zoom;
+    }
+    
+    #figure hr {
+      border: 0;
+      height: 0.5px;
+      background-color: rgba(255, 255, 255, .15);
+    }
+    
+    #figure h2 {
+      font-size: 36px;
+      line-height: 1.16667;
+      color: var(--card-text-color, rgba(255, 255, 255, .92));
+      margin: 0 auto 20px;
+      padding: 0 30px 0 20px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .subtitle {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      width: 100%;
+      text-align: left;
+      color: var(--sub-title, rgba(255, 255, 255, .3));
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes zoom {
+      0% {
+        transform: translate3d(0, -40px, 0) scale(.8);
+        filter: blur(20px);
+        opacity: 0;
+      }
+      50% {
+        transform: translate3d(0, -40px, 0) scale(.8);
+        filter: blur(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
+  </style>
+  <style>
+    html,
+    body {
+      width: 100vw;
+      margin: 0;
+      background: var(--background, #000);
+      background-attachment: fixed;
+      transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+    }
+    
+    body {
+      margin: 0;
+    }
+    
+    .placeholder {
+      height: calc(10px + constant(safe-area-inset-top) + var(--application-safe-area-top));
+      height: calc(10px + env(safe-area-inset-top) + var(--application-safe-area-top));
+    }
+
+    .snap-container {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 16px;
+    }
+
+    .snap-card {
+      min-height: 220px;
+      padding: 0 15px 15px;
+    }
+
+    .snap-card .card-title {
+      margin-left: -15px;
+    }
+
+    .snap-container .child {
+      margin-left: 0.5rem;
+      min-height: 180px;
+      max-width: 320px;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      text-align: left;
+      flex: 0 0 90%;
+      border-radius: 16px;
+      position: relative;
+      padding: 0 30px;
+      box-sizing: border-box;
+      flex-direction: column;
+      box-shadow: 0 0 7px 3px rgb(0 0 0 / 20%);
+      cursor: pointer;
+    }
+
+    .snap-container .child h2 {
+      margin: 30px 0 60px;
+      font-size: 32px;
+      max-height: 270px;
+      text-overflow: ellipsis;
+      box-orient: vertical;
+      -webkit-box-orient: vertical;
+      line-clamp: 6;
+      -webkit-line-clamp: 6;
+      overflow: hidden;
+    }
+
+    .snap-container .child p {
+      position: absolute;
+      bottom: 15px;
+      max-width: 250px;
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .snap-container .child:nth-child(1n) {
+      background-image: linear-gradient(353deg,#580303,#d10000);
+    }
+
+    .snap-container .child:nth-child(2n) {
+      background-image: linear-gradient(353deg,#03045d,#2644ff);
+    }
+
+    .snap-container .child:nth-child(3n) {
+      background-image: linear-gradient(353deg,#501c01,#ff7700);
+    }
+
+    .snap-container .child:nth-child(4n) {
+      background-image: linear-gradient(353deg,#002003,#148103);
+    }
+
+    .snap-container .child:nth-child(5n) {
+      background-image: linear-gradient(353deg,#210026,#7e067e);
+    }
+
+    .snap-container .child:nth-child(6n) {
+      background-image: linear-gradient(353deg,#1c0037,#5e01d6);
+    }
+
+    .snap-container .child:nth-child(7n) {
+      background-image: linear-gradient(353deg,#001f26,#009f98);
+    }
+    
+    .card {
+      box-sizing: border-box;
+      min-height: 100px;
+      max-width: 520px;
+      margin: auto;
+      margin-bottom: 12px;
+      border-radius: 16px;
+      border: 0.5px solid rgba(255, 255, 255, .05);
+      background: var(--card-background, rgba(255, 255, 255, .1));
+      overflow: hidden;
+    }
+    
+    .card-title {
+      font-size: 32px;
+      font-weight: 400;
+      padding: 12px 20px 7px;
+      color: var(--card-title, rgba(255, 255, 255, .3));
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .card-list {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .card-list a {
+      display: block;
+      position: relative;
+      font-size: 20px;
+      padding: 15px 20px;
+      list-style: none;
+      font-weight: 400;
+      color: var(--card-text-color, rgba(255, 255, 255, .92));
+      border-bottom: 0.5px solid rgba(255, 255, 255, .2);
+      border-bottom-color: var(--card-hr-color, rgba(255, 255, 255, .2));
+      align-content: space-between;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .card-list a[tap-highlight] {
+      background-color: var(--card-item-hover, rgba(255, 255, 255, .1)) !important;
+    }
+    
+    @media (pointer: fine) {
+      .card-list a:hover {
+        background-color: var(--card-item-hover, rgba(255, 255, 255, .1));
+      }
+    }
+    
+    .card-list a:last-child {
+      border-bottom: 0;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    
+    .card-list a:after {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      content: ' ';
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyBmaWxsPScjY2NjY2NjJyB2ZXJzaW9uPScxLjEnIGlkPSflm77lsYJfMScgeD0nMHB4JyB5PScwcHgnIHZpZXdCb3g9JzAgMCA1NCA1NCcgZW5hYmxlLWJhY2tncm91bmQ9J25ldyAwIDAgNTQgNTQnIHhtbDpzcGFjZT0ncHJlc2VydmUnPjxzY3JpcHQgeG1sbnM9JycgdHlwZT0ndGV4dC9qYXZhc2NyaXB0JyBjcm9zc29yaWdpbj0nYW5vbnltb3VzJy8+PHBhdGggZD0nTTQ0LjYsMjguNWMwLTAuMSwwLjEtMC4xLDAuMS0wLjJjMC42LTEuMywwLjQtMi45LTAuNy0zLjlMMTkuMiwwLjljLTEuNC0xLjMtMy41LTEuMi00LjgsMC4xcy0xLjIsMy41LDAuMSw0LjhsMjIuMiwyMSBMMTQuNyw0OC4yYy0xLjMsMS4zLTEuNCwzLjQtMC4xLDQuOGMwLjcsMC43LDEuNSwxLDIuNCwxYzAuOCwwLDEuNy0wLjMsMi4zLTAuOWwyNC42LTIzLjdjMCwwLDAuMS0wLjEsMC4xLTAuMmMwLDAsMC4xLTAuMSwwLjEtMC4xIEM0NC4zLDI4LjksNDQuNCwyOC43LDQ0LjYsMjguNUw0NC42LDI4LjV6Jy8+PC9zdmc+");
+    }
+    
+    .card-list a span {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .3);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    p.copyright {
+      margin-top: 20px;
+      opacity: .5;
+      padding: 8px 20px;
+    }
+
+    p.copyright, p.copyright a {
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--main-color, #f5f5f7);
+    }
+    p.copyright a {
+      font-weight: 600;
+    }
+  </style>
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+    }
+    
+    h1 {
+      animation: glitch 3s steps(100) infinite;
+      color: var(--logo-text, #fff);
+      font-size: 150px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1;
+      margin: 0.6em 0;
+      transition: color .36s cubic-bezier(0.32, 0.08, 0.24, 1), height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+    }
+    
+    @media (min-width: 480px) {
+      h1 {
+        font-size: 180px;
+      }
+    }
+  </style>
+  <style>
+    #logoContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      border-radius: 50%;
+      overflow: hidden;
+      zoom: .5;
+    }
+    
+    #logoContainer lathanim {
+      display: block;
+      position: relative;
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      animation-name: zoom-in;
+      animation-delay: 0.5s;
+      animation-duration: 3.5s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+      background-size: 4000px;
+      background-position: -1950px 0;
+    }
+    
+    #logoContainer lathanim::before {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: #000000;
+      width: 150%;
+      height: 30%;
+      left: -25%;
+      bottom: -27%;
+      border-radius: 50%;
+      z-index: 5;
+      transform-origin: left center;
+      background-size: 4000px;
+      background-position: -1950px 0;
+    }
+    
+    #logoContainer lathanim[letter=L] {
+      transform-origin: 30% center;
+    }
+    
+    #logoContainer lathanim[letter=L] .helper-1 {
+      width: 19.5%;
+      height: 100%;
+      background-color: rgba(228, 9, 19, 0.5);
+      left: 22%;
+      top: 0;
+      transform: rotate(180deg);
+      animation-name: fading-lumieres-box;
+      animation-duration: 2s;
+      animation-delay: 0.6s;
+      animation-fill-mode: forwards;
+    }
+    
+    #logoContainer lathanim[letter=L] .helper-1 .effect-brush {
+      animation-name: brush-moving;
+      animation-duration: 2.5s;
+      animation-fill-mode: forwards;
+      animation-delay: 0.8s;
+    }
+    
+    #logoContainer lathanim[letter=L] .helper-1 .effect-brush [class*=fur-] {
+      bottom: 0;
+      height: 40%;
+    }
+    
+    #logoContainer lathanim[letter=L] .helper-2 {
+      width: 17.5%;
+      height: 50%;
+      left: 38%;
+      top: 196px;
+      transform: rotate(270deg);
+      overflow: hidden;
+    }
+    
+    #logoContainer lathanim[letter=L] .helper-2 .effect-brush {
+      animation-name: brush-moving;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-delay: 0.4s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] {
+      position: absolute;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush {
+      position: absolute;
+      width: 100%;
+      height: 300%;
+      top: 0;
+      overflow: hidden;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush::before {
+      display: block;
+      content: "";
+      position: absolute;
+      background-color: #e40913;
+      width: 100%;
+      height: 70%;
+      box-shadow: 0px 0px 29px 24px #e40913;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush [class*=fur-] {
+      display: block;
+      position: absolute;
+      bottom: 10%;
+      height: 30%;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-1 {
+      left: 0%;
+      width: 3.8%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 15%, rgba(0, 0, 0, 0) 81%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-2 {
+      left: 3.8%;
+      width: 2.8%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 10%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-3 {
+      left: 6.6%;
+      width: 4.8%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 37%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-4 {
+      left: 11.4%;
+      width: 4%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 23%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-5 {
+      left: 15.4%;
+      width: 4%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 15%, rgba(0, 0, 0, 0) 86%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-6 {
+      left: 19.4%;
+      width: 2.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 27%, rgba(0, 0, 0, 0) 89%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-7 {
+      left: 21.9%;
+      width: 4%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 20%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-8 {
+      left: 25.9%;
+      width: 2%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 30%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-9 {
+      left: 27.9%;
+      width: 4%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 35%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-10 {
+      left: 31.9%;
+      width: 3.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 39%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-11 {
+      left: 35.4%;
+      width: 2%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 34%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-12 {
+      left: 37.4%;
+      width: 2.6%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 22%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-13 {
+      left: 40%;
+      width: 6%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 47%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-14 {
+      left: 46%;
+      width: 2%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 36%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-15 {
+      left: 48%;
+      width: 5.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 29%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-16 {
+      left: 53.5%;
+      width: 3%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 39%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-17 {
+      left: 56.5%;
+      width: 4.1%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 45%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-18 {
+      left: 60.6%;
+      width: 2.4%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 34%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-19 {
+      left: 63%;
+      width: 4%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 47%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-20 {
+      left: 67%;
+      width: 1.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 27%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-21 {
+      left: 68.5%;
+      width: 2.8%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 37%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-22 {
+      left: 71.3%;
+      width: 2.3%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 9%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-23 {
+      left: 73.6%;
+      width: 2.2%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 28%, rgba(0, 0, 0, 0) 92%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-24 {
+      left: 75.8%;
+      width: 1%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 37%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-25 {
+      left: 76.8%;
+      width: 2.1%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 28%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-26 {
+      left: 78.9%;
+      width: 4.1%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 34%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-27 {
+      left: 83%;
+      width: 2.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 21%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-28 {
+      left: 85.5%;
+      width: 4.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 39%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-29 {
+      left: 90%;
+      width: 2.8%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 30%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-30 {
+      left: 92.8%;
+      width: 3.5%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 19%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-brush .fur-31 {
+      left: 96.3%;
+      width: 3.7%;
+      background: linear-gradient(to bottom, #e40913 0%, #e40913 37%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation-name: showing-lumieres;
+      animation-duration: 2s;
+      animation-delay: 1.6s;
+      animation-fill-mode: forwards;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres [class*=lamp-] {
+      position: absolute;
+      display: block;
+      height: 100%;
+      box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
+      background: var(--color);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres [class*=lamp-]::before {
+      position: absolute;
+      content: " ";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--color);
+      box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-1 {
+      --color: #ff0100;
+      z: 6;
+      left: 0.7%;
+      width: 1%;
+      animation-delay: 1.33s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-1::before {
+      left: 193%;
+      animation-delay: 1.98s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-2 {
+      --color: #ffde01;
+      left: 2.2%;
+      width: 1.4%;
+      animation-delay: 1.81s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-2::before {
+      left: 188%;
+      animation-delay: 0.89s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-3 {
+      --color: #ff00cc;
+      left: 5.8%;
+      width: 2.1%;
+      animation-delay: 1.51s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-3::before {
+      left: 105%;
+      animation-delay: 0.34s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-4 {
+      --color: #04fd8f;
+      left: 10.1%;
+      width: 2%;
+      animation-delay: 1.91s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-4::before {
+      left: 147%;
+      animation-delay: 0.2s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-5 {
+      --color: #ff0100;
+      left: 12.9%;
+      width: 1.4%;
+      animation-delay: 0.57s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-5::before {
+      left: 118%;
+      animation-delay: 1.3s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-6 {
+      --color: #ff9600;
+      left: 15.3%;
+      width: 2.8%;
+      animation-delay: 0.22s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-6::before {
+      left: 124%;
+      animation-delay: 1.86s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-7 {
+      --color: #0084ff;
+      left: 21.2%;
+      width: 2.5%;
+      animation-delay: 1.49s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-7::before {
+      left: 27%;
+      animation-delay: 1.04s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-8 {
+      --color: #f84006;
+      left: 25%;
+      width: 2.5%;
+      animation-delay: 0.26s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-8::before {
+      left: 198%;
+      animation-delay: 0.76s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-9 {
+      --color: #ffc601;
+      left: 30.5%;
+      width: 3%;
+      animation-delay: 0.7s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-9::before {
+      left: 82%;
+      animation-delay: 0.56s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-10 {
+      --color: #ff4800;
+      left: 36.3%;
+      width: 3%;
+      animation-delay: 1.52s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-10::before {
+      left: 66%;
+      animation-delay: 1.77s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-11 {
+      --color: #fd0100;
+      left: 41%;
+      width: 2.2%;
+      animation-delay: 0.98s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-11::before {
+      left: 105%;
+      animation-delay: 0.72s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-12 {
+      --color: #01ffff;
+      left: 44.2%;
+      width: 2.6%;
+      animation-delay: 1.95s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-12::before {
+      left: 105%;
+      animation-delay: 0.25s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-13 {
+      --color: #ffc601;
+      left: 51.7%;
+      width: 0.5%;
+      animation-delay: 0.72s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-13::before {
+      left: 166%;
+      animation-delay: 1.11s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-14 {
+      --color: #ffc601;
+      left: 52.1%;
+      width: 1.8%;
+      animation-delay: 1.35s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-14::before {
+      left: 177%;
+      animation-delay: 2s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-15 {
+      --color: #0078fe;
+      left: 53.8%;
+      width: 2.3%;
+      animation-delay: 0.7s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-15::before {
+      left: 161%;
+      animation-delay: 0.08s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-16 {
+      --color: #0080ff;
+      left: 57.2%;
+      width: 2%;
+      animation-delay: 1.2s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-16::before {
+      left: 4%;
+      animation-delay: 1.73s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-17 {
+      --color: #ffae01;
+      left: 62.3%;
+      width: 2.9%;
+      animation-delay: 1.05s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-17::before {
+      left: 185%;
+      animation-delay: 1.77s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-18 {
+      --color: #ff00bf;
+      left: 65.8%;
+      width: 1.7%;
+      animation-delay: 0.85s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-18::before {
+      left: 117%;
+      animation-delay: 0.82s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-19 {
+      --color: #a601f4;
+      left: 72.8%;
+      width: 0.8%;
+      animation-delay: 1.92s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-19::before {
+      left: 151%;
+      animation-delay: 1.99s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-20 {
+      --color: #f30b34;
+      left: 74.3%;
+      width: 2%;
+      animation-delay: 0.09s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-20::before {
+      left: 10%;
+      animation-delay: 0.72s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-21 {
+      --color: #ff00bf;
+      left: 79.8%;
+      width: 2%;
+      animation-delay: 0.97s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-21::before {
+      left: 198%;
+      animation-delay: 1.89s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-22 {
+      --color: #04fd8f;
+      left: 78.2%;
+      width: 2%;
+      animation-delay: 1.32s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-22::before {
+      left: 22%;
+      animation-delay: 0.1s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-23 {
+      --color: #01ffff;
+      left: 78.5%;
+      width: 2%;
+      animation-delay: 0.02s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-23::before {
+      left: 197%;
+      animation-delay: 1.36s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-24 {
+      --color: #a201ff;
+      left: 85.3%;
+      width: 1.1%;
+      animation-delay: 0.87s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-24::before {
+      left: 37%;
+      animation-delay: 0.56s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-25 {
+      --color: #ec0014;
+      left: 86.9%;
+      width: 1.1%;
+      animation-delay: 1.86s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-25::before {
+      left: 97%;
+      animation-delay: 0.22s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-26 {
+      --color: #0078fe;
+      left: 88.8%;
+      width: 2%;
+      animation-delay: 0.48s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-26::before {
+      left: 159%;
+      animation-delay: 0.63s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-27 {
+      --color: #ff0036;
+      left: 92.4%;
+      width: 2.4%;
+      animation-delay: 0.78s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-27::before {
+      left: 47%;
+      animation-delay: 1.41s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-28 {
+      --color: #06f98c;
+      left: 96.2%;
+      width: 2.1%;
+      animation-delay: 0.97s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-28::before {
+      left: 3%;
+      animation-delay: 0.86s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-1,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-3,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-5,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-7,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-9,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-11,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-13,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-15,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-17,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-19,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-21,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-23,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-25,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-27 {
+      animation-name: lumieres-moving-left;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-1::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-3::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-5::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-7::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-9::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-11::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-13::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-15::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-17::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-19::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-21::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-23::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-25::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-27::before {
+      animation-name: lumieres-moving-left;
+      animation-duration: 5.5s;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-2,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-4,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-6,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-8,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-10,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-12,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-14,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-16,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-18,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-20,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-22,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-24,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-26,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-28 {
+      animation-name: lumieres-moving-right;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+    }
+    
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-2::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-4::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-6::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-8::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-10::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-12::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-14::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-16::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-18::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-20::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-22::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-24::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-26::before,
+    #logoContainer lathanim [class*=helper-] .effect-lumieres .lamp-28::before {
+      animation-name: lumieres-moving-right;
+      animation-duration: 5.5s;
+    }
+    
+    @keyframes brush-moving {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+    
+    @keyframes fading-out {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    
+    @keyframes lumieres-moving-right {
+      0% {
+        transform: translate(0);
+      }
+      40% {
+        transform: translate(-10px) scaleX(1);
+      }
+      50% {
+        transform: translate(-60px);
+      }
+      100% {
+        transform: translate(-120px) scaleX(3);
+      }
+    }
+    
+    @keyframes lumieres-moving-left {
+      0% {
+        transform: translate(0);
+      }
+      40% {
+        transform: translate(10px) scaleX(1);
+      }
+      50% {
+        transform: translate(60px);
+      }
+      100% {
+        transform: translate(120px) scaleX(3);
+      }
+    }
+    
+    @keyframes zoom-in {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(15);
+      }
+    }
+    
+    @keyframes showing-lumieres {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fading-lumieres-box {
+      0% {
+        background-color: rgba(228, 9, 19, 0.5);
+      }
+      100% {
+        background-color: rgba(228, 9, 19, 0);
+      }
+    }
+  </style>
+  <script>
+    const _to = (id) => {
+      window.parent.postMessage({
+        action: 'to',
+        data: {
+          applet: id
+        }
+      }, '*')
+    }
+  </script>
+</head>

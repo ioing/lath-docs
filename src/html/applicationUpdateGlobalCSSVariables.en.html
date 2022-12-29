@@ -1,0 +1,31 @@
+
+    
+<div class="card">
+  <h1>Application.updateGlobalCSSVariables</h1>
+
+<p><small>Application.updateGlobalCSSVariables</small></p>
+<p>Update the app&#39;s global CSS variables (subject to the same-origin policy).</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">type ApplicationSafeAreaValue = string | Array&lt;string&gt;
+type updateSafeArea = (data: ApplicationSafeAreaValue) =&gt; void
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When an update is performed, all modules within the lifecycle are updated with real-time style variables.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">application.updateGlobalCSSVariables({
+  &#39;---common-button-color&#39;: &#39;#000000&#39;,
+  &#39;---common-button-width&#39;: &#39;100%&#39;,
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>The cross-domain module page needs to be handled by itself, please refer to &#39;Application.updateSafeArea&#39;.</p>
+</div>
+    

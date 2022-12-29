@@ -1,0 +1,37 @@
+
+    
+<div class="card">
+  <h1>Tunneling</h1>
+
+<p><small>PresetConfig &gt; tunneling</small></p>
+<p>Set the app to &quot;Tunnel Mode&quot;. (Preconfigured items before the app starts.)</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">interface PresetConfig {
+  tunneling?: boolean
+}
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<blockquote>
+<p>If you access a cross-domain Applet under the current domain, the cross-domain Applet cannot be implemented due to the same-origin policy, the global style variable update, and the ability in [Apply] (such as a new window).</p>
+</blockquote>
+<p>Some of the limitations of the cross-domain Applet page are addressed by plugging the cross-domain Applet page to Lath and turning on [tunneling].</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">createApplication({
+  tunneling: true,
+  applets: {
+    ...
+  }
+})
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>When the page is connected to Lath and [tunneling] is turned on, the page itself is a separate application, but when the page is embedded in another Lath application as a Applet, the page opened through the A link (i.e. pushWindow) will not be opened within the application, but will proxied to open in the parent application, if the parent application is also embedded Lath application, and also opened [tunneling] will continue to &quot;tunnel&quot; upwards.</p>
+</div>
+    

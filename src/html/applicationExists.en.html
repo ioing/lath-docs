@@ -1,0 +1,27 @@
+
+    
+<div class="card">
+  <h1>Application.exists</h1>
+
+<p><small>Application.exists</small></p>
+<p>Get the historical sequence which was whether loaded for the first time of the current page.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">type exists = boolean
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>When you first access the link into the app, Lath will record the location of your current history node, and after any page activity occurs, it can detect whether the current position has changed. If the value is false, it means that the history has changed, that is, the current history is not the first entry.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">console.log(application.exists)
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>This method only records the location of the node that was first loaded, for example, if you refresh the browser on any page, it will cause the node to relabel the location.</p>
+</div>
+    

@@ -1,0 +1,131 @@
+
+    
+<div class="card">
+  <h1>Concept</h1>
+
+<p>Before getting started quickly, let&#39;s first understand the basic concepts.</p>
+<ul>
+<li><strong>Application</strong>: A Lath application is composed of several Applets.</li>
+<li><strong>Applet</strong>: An Applet is composed of one page or one View and its related configuration files.</li>
+<li><strong>FrameworksApplet</strong>: Each Lath Application must have a frame-type Applet, which mainly carries public capabilities, such as navigation bars and so on.</li>
+</ul>
+<blockquote>
+<p>Lath application is actually a SPA (single page application), its corresponding routing view can be a slice view inside itself or an external page view, no matter what type of view it is, it is used as an applet the entity content exists.</p>
+</blockquote>
+
+</div>
+<div class="card">
+  <h1>Apply</h1>
+
+<p>Suppose we want to make a SPA (single page application) now, and we have made each routing page corresponding to the application, then we only need to assemble it in the following way:</p>
+<p>Use the <strong>&lt;define-application&gt;</strong> container as the root node to wrap the entire content of the page, so that the page is declared as a Lath application, and then use <strong>&lt;define-applet&gt;</strong> container inside it to wrap a specific routing view (we can understand it as a page in a traditional SPA) so that the wrapping view is declared as a view of an Applet entity.</p>
+<pre><div class="docs-code"><code-highlight type="html">&lt;body&gt;
+  &lt;define-application default-applet=&quot;appletA&quot;&gt;
+    &lt;define-applet applet-id=&quot;appletA&quot;&gt;
+      &lt;div&gt;This is the content of &#39;appletA&#39;&lt;/div&gt;
+    &lt;/define-applet&gt;
+    &lt;define-applet applet-id=&quot;appletB&quot;&gt;
+      &lt;div&gt;This is the content of &#39;appletB&#39;&lt;/div&gt;
+    &lt;/define-applet&gt;
+  &lt;/define-application&gt;
+&lt;/body&gt;
+</code-highlight></div></pre>
+<ul>
+<li>The attribute <strong>“default-applet”</strong> on &lt;define-application&gt; can specify an applet name as the default view when the application is initialized, that is, the earliest view visible to the user.</li></li>
+<li>The attribute <strong>“applet-id”</strong> on &lt;define-applet&gt; is the declared applet name</li></li>
+</ul>
+<blockquote>
+<p>&quot;default-applet&quot; is the applet declared by &lt;define-applet&gt; in the &lt;define-application&gt; package. When the page is opened in the browser, only the specified applet view is visible, and other views are not visible.</p>
+</blockquote>
+<p>Using lable wrapping is the first step in creating a Lath application. Next, we also need to configure properties for each declared applet, such as setting a title for each applet.</p>
+<pre><div class="docs-code"><code-highlight type="ts">import { createApplication } from &#39;lath&#39;
+createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        title: &#39;Lath Demo&#39;,
+      },
+    },
+    appletA: {
+      config: {
+        title: &#39;Page A&#39;,
+      },
+    },
+    appletB: {
+      config: {
+        title: &#39;Page B&#39;,
+      },
+    },
+  },
+})
+</code-highlight></div></pre>
+<p>We use the &lt;define-application&gt; container to declare the application, but to actually start the application we also need to execute the <a to-applet="doc?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.</p>
+<p>Unsurprisingly we will get a &quot;magic&quot; page, at which point we can do this via the A link or <a to-applet="doc?id=applicationTo" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.</p>
+<hr>
+<p>In general, we will not integrate all the routing pages that may be loaded in the application into one page at one time, but hope to load on demand, then we only need to express it through the configuration information:</p>
+<pre><div class="docs-code"><code-highlight type="ts">import { createApplication } from &#39;lath&#39;
+createApplication({
+  applets: {
+    frameworks: {
+      config: {
+        title: &#39;Lath Demo&#39;,
+      },
+    },
+    home: {
+      config: {
+        title: &#39;home&#39;,
+        source: {
+          src: &#39;https://www.yoursite.com/home.html&#39;,
+        },
+      },
+    },
+  },
+}).then((application) =&gt; {
+  // return application
+  console.log(application)
+})
+</code-highlight></div></pre>
+<p>Applet views can be declared not only through &lt;define-applet&gt;, but also through configuration items <a to-applet="doc?id=source" clone-as="popDoc">source</a>.</p>
+<p>When using source to define an applet view, there is no need to declare it with &lt;define-applet&gt;.</p>
+<blockquote>
+<p>Generally, we will declare the frameworks Applets and the first screen Applet by the method of &lt;define-applet&gt;, and the other Applets will be declared by configuring the &#39;source&#39; method, which can ensure the maximum loading speed of the first screen.</p>
+</blockquote>
+
+</div>
+<div class="card">
+  <h1>Common Problems</h1>
+
+<p><strong>Where does the scroll event go when declared with &lt;define-applet&gt;?</strong></p>
+<p>Each Applet view is equivalent to a complete page content, and it should have its own scroll container, so when declared with &lt;define-applet&gt;, its internal logic related to scroll events needs to be moved from &quot;body&quot; Except, the modification is bound to its own &lt;define-applet&gt; tag element.</p>
+<hr>
+<p><strong>How to introduce cross-domain page views?</strong></p>
+<p>When using source to declare an Applet&#39;s view, if its src page points to a cross-domain page, the ability of the proxy type in the page will be limited. To solve this problem, you can also introduce Lath in the reference page and enable the option <a to-applet="doc?id=tunneling" clone-as="popDoc">PresetConfig &gt; tunneling</a> to lift some restriction.</p>
+<hr>
+<p><strong>Does Lath have timing requirements?</strong></p>
+<p>Lath as an experience enhancement container, is not necessary on the first screen, so we recommend executing the &#39;createApplication&#39; method after the first screen is loaded, so as not to block the rendering of the first screen content.</p>
+<hr>
+<p><strong>Typescript&amp;JSX warning?</strong></p>
+<p>When using Typescript in the React environment, we need to define the type of the container&#39;s label, otherwise &#39;ts&#39; will generate a warning. At this time, add &#39;the type.d.ts&#39; file to the project.</p>
+<pre><div class="docs-code"><code-highlight type="ts">// type.d.ts
+import &#39;lath&#39;
+declare namespace JSX {
+  interface IntrinsicElements {
+    &#39;define-applet&#39;: {
+      children: Element
+      &#39;applet-id&#39;: string
+    }
+    &#39;define-application&#39;: {
+      children: Element
+      &#39;default-applet&#39;: string
+    }
+  }
+}
+</code-highlight></div></pre>
+
+</div>
+<div class="card">
+  <h1>See also</h1>
+
+<p><a href="https://github.com/ioing/lath-vue-example">A code example developed using Lath in a Vue project.</a></p>
+</div>
+    

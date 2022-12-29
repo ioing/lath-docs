@@ -1,0 +1,120 @@
+<style>
+  html, body {
+    overscroll-behavior: none;
+    background-color: var(--background);
+  }
+  .menu-list {
+    padding: calc(80px + env(safe-area-inset-top)) 30px 80px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .item-list {
+    padding: 0;
+  }
+
+  .item-list li {
+    list-style: none;
+    transition: opacity .3091s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s, -webkit-transform .3455s cubic-bezier(0.32, 0.08, 0.24, 1) .02s;
+  }
+
+  .item-list a {
+    display: flex;
+    color: var(--main-color, #f5f5f7);
+    font-size: 19px;
+    line-height: 2.7;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    height: 54px;
+    opacity: .8;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    border-color: var(--menu-hr-color, rgba(255, 255, 255, 0.2));
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .item-list a svg {
+    margin-top: 12px;
+    margin-right: 15px;
+    width: 25px;
+  }
+
+  h2 {
+    font-size: 28px;
+    color: var(--main-color, #fff);
+    margin-top: 0;
+  }
+
+  h4 {
+    color: var(--main-color, #fff);
+  }
+
+  .payType {
+    display: block;
+    margin: 4px 0;
+    padding: 7px 0 0;
+    height: 28px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: right;
+  }
+
+  .payType[tap-highlight] {
+    background-color: var(--card-item-hover, rgba(255, 255, 255, .1)) !important;
+  }
+
+  @media (pointer: fine) {
+    .payType:hover {
+      background-color: var(--card-item-hover, rgba(255, 255, 255, .1));
+    }
+  }
+
+  .payType small {
+    padding-top: 5px;
+    color:#99999994;
+    line-height: 30px;
+  }
+
+  .icon {
+    height: 28px;
+    float: left;
+  }
+
+  hr {
+    border: 0;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    border-color: var(--menu-hr-color, rgba(255, 255, 255, 0.2));
+  }
+
+  p {
+    margin: 0 auto;
+    padding: 10px 0;
+    color: var(--main-color, #f5f5f7);
+  }
+
+  p.title {
+    font-size: 19px;
+    font-weight: bold;
+    opacity: .7;
+  }
+
+  p.copyright {
+    margin-top: 20px;
+    opacity: .5;
+  }
+
+  p.copyright, p.copyright a {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--main-color, #f5f5f7);
+  }
+</style>
+

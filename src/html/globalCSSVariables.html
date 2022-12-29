@@ -1,0 +1,43 @@
+
+    
+      <div class="card">
+        <h1>GlobalCSSVariables</h1>
+      
+<p><small>FrameworksAppletConfig &gt; globalCSSVariables<small>设定应用的全局 CSS 变量。（frameworks 程序卡专属配置）</p>
+<hr>
+<h3>Types</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> type GlobalCSSVariables = { [key: string]: string }
+            interface AppletBaseConfig {
+              globalCSSVariables?: GlobalCSSVariables | (() =&gt; GlobalCSSVariables)
+            }
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>与 [safeArea] 相似，同样只能在同域程序卡页面下生效。</p>
+<p>如果需要动态的修改或增加这个值则可以通过 “API-updateGlobalCSSVariables” 事件来进行更新</p>
+<hr>
+<h3>Example</h3>
+
+ 
+<pre><div class="docs-code"><code-highlight type="ts"> createApplication({
+              applets: {
+                home: {
+                  config: {
+                    globalCSSVariables: {
+                      &#39;--main-color&#39;: &#39;#fff&#39;,
+                      &#39;--title-font-size&#39;: &#39;28px&#39;
+                    }
+                  }
+                }
+              }
+            })
+</code-highlight></div></pre>
+<hr>
+<h3>Notes</h3>
+
+<p>配合 “API-updateGlobalCSSVariables” 使用，可创造出丝滑的主题切换效果。</p>
+      </div>
+    
