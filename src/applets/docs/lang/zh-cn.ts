@@ -1,6 +1,4 @@
-export * as api_applet_slideView from '/src/html/api_applet_slideView.zh-cn.html';
-export * as api_application_activityApplet from '/src/html/api_application_activityApplet.zh-cn.html';
-export * as api_application_preActivityApplet from '/src/html/api_application_preActivityApplet.zh-cn.html';
+export * as allowHost from '/src/html/allowHost.zh-cn.html';
 export * as api_application_to from '/src/html/api_application_to.zh-cn.html';
 export * as appletColor from '/src/html/appletColor.zh-cn.html';
 export * as appletEvents from '/src/html/appletEvents.zh-cn.html';
@@ -57,4 +55,6 @@ export * as transient from '/src/html/transient.zh-cn.html';
 export * as tunneling from '/src/html/tunneling.zh-cn.html';
 export * as tutorialSlidingCards from '/src/html/tutorialSlidingCards.zh-cn.html';
 export * as useMirroring from '/src/html/useMirroring.zh-cn.html';
-export * as allowHost from '/src/html/allowHost.zh-cn.html';
+export * as api_application_preActivityApplet from '/src/html/api_application_preActivityApplet.zh-cn.html';
+export * as api_applet_slideView from '/src/html/api_applet_slideView.zh-cn.html';
+export * as api_application_activityApplet from '/src/html/api_application_activityApplet.zh-cn.html';
