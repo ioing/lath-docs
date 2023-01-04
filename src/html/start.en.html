@@ -59,8 +59,8 @@ createApplication({
   },
 })
 </code-highlight></div></pre>
-<p>We use the &lt;define-application&gt; container to declare the application, but to actually start the application we also need to execute the <a to-applet="doc?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.</p>
-<p>Unsurprisingly we will get a &quot;magic&quot; page, at which point we can do this via the A link or <a to-applet="doc?id=applicationTo" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.</p>
+<p>We use the &lt;define-application&gt; container to declare the application, but to actually start the application we also need to execute the <a to-applet="docs?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.</p>
+<p>Unsurprisingly we will get a &quot;magic&quot; page, at which point we can do this via the A link or <a to-applet="docs?id=api_application_to" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.</p>
 <hr>
 <p>In general, we will not integrate all the routing pages that may be loaded in the application into one page at one time, but hope to load on demand, then we only need to express it through the configuration information:</p>
 <pre><div class="docs-code"><code-highlight type="ts">import { createApplication } from &#39;lath&#39;
@@ -85,7 +85,7 @@ createApplication({
   console.log(application)
 })
 </code-highlight></div></pre>
-<p>Applet views can be declared not only through &lt;define-applet&gt;, but also through configuration items <a to-applet="doc?id=source" clone-as="popDoc">source</a>.</p>
+<p>Applet views can be declared not only through &lt;define-applet&gt;, but also through configuration items <a to-applet="docs?id=source" clone-as="popDoc">source</a>.</p>
 <p>When using source to define an applet view, there is no need to declare it with &lt;define-applet&gt;.</p>
 <blockquote>
 <p>Generally, we will declare the frameworks Applets and the first screen Applet by the method of &lt;define-applet&gt;, and the other Applets will be declared by configuring the &#39;source&#39; method, which can ensure the maximum loading speed of the first screen.</p>
@@ -99,7 +99,7 @@ createApplication({
 <p>Each Applet view is equivalent to a complete page content, and it should have its own scroll container, so when declared with &lt;define-applet&gt;, its internal logic related to scroll events needs to be moved from &quot;body&quot; Except, the modification is bound to its own &lt;define-applet&gt; tag element.</p>
 <hr>
 <p><strong>How to introduce cross-domain page views?</strong></p>
-<p>When using source to declare an Applet&#39;s view, if its src page points to a cross-domain page, the ability of the proxy type in the page will be limited. To solve this problem, you can also introduce Lath in the reference page and enable the option <a to-applet="doc?id=tunneling" clone-as="popDoc">PresetConfig &gt; tunneling</a> to lift some restriction.</p>
+<p>When using source to declare an Applet&#39;s view, if its src page points to a cross-domain page, the ability of the proxy type in the page will be limited. To solve this problem, you can also introduce Lath in the reference page and enable the option <a to-applet="docs?id=tunneling" clone-as="popDoc">PresetConfig &gt; tunneling</a> to lift some restriction.</p>
 <hr>
 <p><strong>Does Lath have timing requirements?</strong></p>
 <p>Lath as an experience enhancement container, is not necessary on the first screen, so we recommend executing the &#39;createApplication&#39; method after the first screen is loaded, so as not to block the rendering of the first screen content.</p>

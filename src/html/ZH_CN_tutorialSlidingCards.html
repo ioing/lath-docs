@@ -11,7 +11,7 @@
         
 
 <p>这会很容易让我们联想到 <strong>Tab</strong> 功能，但他们存在一些微的小区别，比如 Tab 一般是不具有滑动手势的。</p>
-<p>我们在实现这个效果前需要确定滑动卡片的效果是由哪个视图承接的，即实现该效果的 Applet 是谁，同时在这个视图中所嵌套的并排可滑动的 Applet 是谁？确定好这些之后我们就可以开始创建效果了，用到配置项 <a to-applet="doc?id=defaultSlideViewApplets">defaultSlideViewApplets</a></p>
+<p>我们在实现这个效果前需要确定滑动卡片的效果是由哪个视图承接的，即实现该效果的 Applet 是谁，同时在这个视图中所嵌套的并排可滑动的 Applet 是谁？确定好这些之后我们就可以开始创建效果了，用到配置项 <a to-applet="docs?id=defaultSlideViewApplets">defaultSlideViewApplets</a></p>
 <p>假使我们有三个 Applet 分别命名为 A、 B 、C，我们希望有一个视图可以同时承载 ABC 三个 Applet，并使它们能够呈现 Slider 效果。</p>
 <p>我们新建一个 Applet D，它并不具备任何自身的视图，而仅是作为空容器将 ABC三个 Applet 引入进来，那么此时我们导航进入到 D时就可看到一个 Slider 效果的视图了，如果我们希望访问到 B，则只需先访问 D 再访问 B，若已经存在 D 则可直接访问 B 即可。</p>
 <pre><div class="docs-code"><code-highlight type="ts"> createApplication({

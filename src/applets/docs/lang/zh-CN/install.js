@@ -28,7 +28,7 @@ exports.default = {
             },
             {
                 type: 'text',
-                value: '它能让你的页面体验更上一阶，实现媲美原生 Apps 的效果，比如<a to-applet="doc?id=modality" clone-as="popDoc">预载二级页面</a>，<a to-applet="doc?id=pullToRefresh" clone-as="popDoc">Pop Sheet</a> 交互效果，<a to-applet="doc?id=pullToRefresh" clone-as="popDoc">平滑无闪烁下拉刷新</a>，实现无缝的<a to-applet="doc?id=presetEffect" clone-as="popDoc">页面转场效果</a>以及流畅的<a to-applet="doc?id=presetEffect" clone-as="popDoc">页面横滑效果</a>等等诸多实现方案。'
+                value: '它能让你的页面体验更上一阶，实现媲美原生 Apps 的效果，比如<a to-applet="docs?id=modality" clone-as="popDoc">预载二级页面</a>，<a to-applet="docs?id=pullToRefresh" clone-as="popDoc">Pop Sheet</a> 交互效果，<a to-applet="docs?id=pullToRefresh" clone-as="popDoc">平滑无闪烁下拉刷新</a>，实现无缝的<a to-applet="docs?id=presetEffect" clone-as="popDoc">页面转场效果</a>以及流畅的<a to-applet="docs?id=presetEffect" clone-as="popDoc">页面横滑效果</a>等等诸多实现方案。'
             },
             {
                 type: 'text',

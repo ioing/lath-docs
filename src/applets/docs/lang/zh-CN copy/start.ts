@@ -105,11 +105,11 @@ export default {
       },
       {
         type: 'text',
-        value: '我们使用 &lt;define-application> 容器是为了声明应用，但要真正启动应用还需要执行 <a to-applet="doc?id=install" clone-as="popDoc">createApplication</a> 方法，并传入 Applet 相关配置。'
+        value: '我们使用 &lt;define-application> 容器是为了声明应用，但要真正启动应用还需要执行 <a to-applet="docs?id=install" clone-as="popDoc">createApplication</a> 方法，并传入 Applet 相关配置。'
       },
       {
         type: 'text',
-        value: '不出意外我们将得到一个“施了魔法”的页面，此时我们可以通过 A 链接或 <a to-applet="doc?id=applicationTo" clone-as="popDoc">Application.to</a> 等方法路由到已定义的程序卡视图上。'
+        value: '不出意外我们将得到一个“施了魔法”的页面，此时我们可以通过 A 链接或 <a to-applet="docs?id=applicationTo" clone-as="popDoc">Application.to</a> 等方法路由到已定义的程序卡视图上。'
       },
       {
         type: 'hr'
@@ -148,7 +148,7 @@ export default {
       },
       {
         type: 'text',
-        value: 'Applet 的视图不光可以通过 &lt;define-applet> 进行声明，也可以通过配置项  <a to-applet="doc?id=source" clone-as="popDoc">source</a> 进行声明。'
+        value: 'Applet 的视图不光可以通过 &lt;define-applet> 进行声明，也可以通过配置项  <a to-applet="docs?id=source" clone-as="popDoc">source</a> 进行声明。'
       },
       {
         type: 'text',
@@ -181,7 +181,7 @@ export default {
       },
       {
         type: 'text',
-        value: '当使用 source 声明 Applet 的视图，若其 src 页面指向为一个跨域页面，则该页面中的被代理类型的能力将会受到限制，若要解决此问题可在引用页面中同样引入 Lath 并开启选项 <a to-applet="doc?id=tunneling" clone-as="popDoc">PresetConfig > tunneling</a> 来解除一些限制。'
+        value: '当使用 source 声明 Applet 的视图，若其 src 页面指向为一个跨域页面，则该页面中的被代理类型的能力将会受到限制，若要解决此问题可在引用页面中同样引入 Lath 并开启选项 <a to-applet="docs?id=tunneling" clone-as="popDoc">PresetConfig > tunneling</a> 来解除一些限制。'
       },
       {
         type: 'hr'

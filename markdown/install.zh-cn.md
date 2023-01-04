@@ -12,7 +12,7 @@ Lath(中文名：板条) 是一个体验增强容器，其初始依赖非常小�
 
 # 为什么使用它？
 
-它能让你的页面体验更加极致，实现媲美原生 Apps 的效果，比如<a to-applet="doc?id=modality" clone-as="popDoc">预载二级页面</a>，<a to-applet="doc?id=pullToRefresh" clone-as="popDoc">Pop Sheet</a> 交互效果，<a to-applet="doc?id=pullToRefresh" clone-as="popDoc">平滑无闪烁下拉刷新</a>，实现无缝的<a to-applet="doc?id=presetEffect" clone-as="popDoc">页面转场效果</a>以及流畅的<a to-applet="doc?id=presetEffect" clone-as="popDoc">页面横滑效果</a>等等诸多实现方案。
+它能让你的页面体验更加极致，实现媲美原生 Apps 的效果，比如<a to-applet="docs?id=modality" clone-as="popDoc">预载二级页面</a>，<a to-applet="docs?id=pullToRefresh" clone-as="popDoc">Pop Sheet</a> 交互效果，<a to-applet="docs?id=pullToRefresh" clone-as="popDoc">平滑无闪烁下拉刷新</a>，实现无缝的<a to-applet="docs?id=presetEffect" clone-as="popDoc">页面转场效果</a>以及流畅的<a to-applet="docs?id=presetEffect" clone-as="popDoc">页面横滑效果</a>等等诸多实现方案。
 
 当你要获得这一切时并无需对原有逻辑和框架做出改变，甚至在初始页面的加载时也不会有对页面性能产生阻塞。
 

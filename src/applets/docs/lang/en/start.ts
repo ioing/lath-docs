@@ -105,11 +105,11 @@ export default {
       },
       {
         type: 'text',
-        value: 'We use the &lt;define-application> container to declare the application, but to actually start the application we also need to execute the <a to-applet="doc?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.'
+        value: 'We use the &lt;define-application> container to declare the application, but to actually start the application we also need to execute the <a to-applet="docs?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.'
       },
       {
         type: 'text',
-        value: 'Unsurprisingly we will get a "magic" page, at which point we can do this via the A link or <a to-applet="doc?id=applicationTo" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.'
+        value: 'Unsurprisingly we will get a "magic" page, at which point we can do this via the A link or <a to-applet="docs?id=applicationTo" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.'
       },
       {
         type: 'hr'
@@ -148,7 +148,7 @@ export default {
       },
       {
         type: 'text',
-        value: 'Applet views can be declared not only through &lt;define-applet>, but also through configuration items <a to-applet="doc?id=source" clone-as="popDoc">source</a>.'
+        value: 'Applet views can be declared not only through &lt;define-applet>, but also through configuration items <a to-applet="docs?id=source" clone-as="popDoc">source</a>.'
       },
       {
         type: 'text',
@@ -181,7 +181,7 @@ export default {
       },
       {
         type: 'text',
-        value: 'When using source to declare an Applet\'s view, if its src page points to a cross-domain page, the ability of the proxy type in the page will be limited. To solve this problem, you can also introduce Lath in the reference page and enable the option <a to-applet="doc?id=tunneling" clone-as="popDoc">PresetConfig > tunneling</a> to lift some restriction.'
+        value: 'When using source to declare an Applet\'s view, if its src page points to a cross-domain page, the ability of the proxy type in the page will be limited. To solve this problem, you can also introduce Lath in the reference page and enable the option <a to-applet="docs?id=tunneling" clone-as="popDoc">PresetConfig > tunneling</a> to lift some restriction.'
       },
       {
         type: 'hr'

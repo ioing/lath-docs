@@ -77,7 +77,7 @@ export default {
       },
       {
         type: 'text',
-        value: '我们在实现这个效果前需要确定滑动卡片的效果是由哪个视图承接的，即实现该效果的 Applet 是谁，同时在这个视图中所嵌套的并排可滑动的 Applet 是谁？确定好这些之后我们就可以开始创建效果了，用到配置项 <a to-applet="doc?id=defaultSlideViewApplets">defaultSlideViewApplets</a>'
+        value: '我们在实现这个效果前需要确定滑动卡片的效果是由哪个视图承接的，即实现该效果的 Applet 是谁，同时在这个视图中所嵌套的并排可滑动的 Applet 是谁？确定好这些之后我们就可以开始创建效果了，用到配置项 <a to-applet="docs?id=defaultSlideViewApplets">defaultSlideViewApplets</a>'
       },
       {
         type: 'text',

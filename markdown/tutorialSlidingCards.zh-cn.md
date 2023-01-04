@@ -8,7 +8,7 @@
 
 这会很容易让我们联想到 **Tab** 功能，但他们存在一些微的小区别，比如 Tab 一般是不具有滑动手势的。
 
-我们在实现这个效果前需要确定滑动卡片的效果是由哪个视图承接的，即实现该效果的 Applet 是谁，同时在这个视图中所嵌套的并排可滑动的 Applet 是谁？确定好这些之后我们就可以开始创建效果了，用到配置项 <a to-applet="doc?id=defaultSlideViewApplets">defaultSlideViewApplets</a>
+我们在实现这个效果前需要确定滑动卡片的效果是由哪个视图承接的，即实现该效果的 Applet 是谁，同时在这个视图中所嵌套的并排可滑动的 Applet 是谁？确定好这些之后我们就可以开始创建效果了，用到配置项 <a to-applet="docs?id=defaultSlideViewApplets">defaultSlideViewApplets</a>
 
 假使我们有三个 Applet 分别命名为 A、 B 、C，我们希望有一个视图可以同时承载 ABC 三个 Applet，并使它们能够呈现 Slider 效果。
 

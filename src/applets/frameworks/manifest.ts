@@ -14,6 +14,7 @@ export default {
     animation: 'slide',
     appSwitcher: true,
     background: true,
+    untouchableSegueType: 'fade',
     color: 'var(--background)',
     safeArea: ['38px', '0px', '0px', '0px'],
     inject: (_shadowWindow, applet) => {
