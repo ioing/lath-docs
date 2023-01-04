@@ -125,7 +125,7 @@ const getHtml = async () => {
   if (lang === 'zh-CN') {
     schema = await import('./lang/zh-cn') as unknown as LangSchema
   } else if (lang === 'JP') {
-    schema = await import('./lang/jp') as unknown as LangSchema
+    schema = await import('./lang/zh-cn') as unknown as LangSchema
   } else {
     schema = await import('./lang/en') as unknown as LangSchema
   }
