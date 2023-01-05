@@ -9,6 +9,7 @@ export default {
       html
     },
     animation: 'slide-up' as 'slide-up',
+    animationUnderUntouchable: false,
     color: '#333',
     background: 'auto' as 'auto',
     capture: (e) => {

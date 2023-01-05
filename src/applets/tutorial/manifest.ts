@@ -16,6 +16,7 @@ export default {
       }
     },
     modality: 'sheet' as 'sheet',
+    modalityUnderUntouchable: 'overlay' as 'overlay',
     paperOptions: {
       top: '10px + env(safe-area-inset-top)'
     },

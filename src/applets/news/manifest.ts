@@ -8,6 +8,7 @@ export default {
       target.innerHTML = html
     },
     modality: 'sheet' as 'sheet',
+    modalityUnderUntouchable: 'paper' as 'paper',
     sheetOptions: {
       top: '5%',
       backgroundBrightness: 0.8,

@@ -9,6 +9,7 @@ export default {
       target.innerHTML = html
     },
     modality: 'sheet' as 'sheet',
+    modalityUnderUntouchable: 'paper' as 'paper',
     sheetOptions: {
       top: '12%',
       backgroundBrightness: 0.8,
