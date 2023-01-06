@@ -14,6 +14,7 @@ export default {
       backgroundBrightness: 0.8,
       maskClosable: true,
       miniCardHeight: '260px',
+      defaultCardSize: 'large' as 'large',
       backdropColor: 'rgb(82 82 82)',
       swipeClose: true
     },

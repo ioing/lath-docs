@@ -9,7 +9,7 @@ export default {
     level: 0,
     free: false,
     prerender: ['home', 'directory', 'empty', 'docs', 'news', 'weChatQrCode', 'weChatPay'],
-    swipeModel: true, // pc 和 不支持 touch 的设备将强制关闭
+    // swipeModel: true, // 默认 android 以及 pc 和 不支持 touch 的设备为关闭
     pullToRefresh: true,
     animation: 'slide',
     appSwitcher: true,
