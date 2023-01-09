@@ -25,7 +25,7 @@ export default {
       subTitle: 'あらゆるコーディングスキームのスムーズな移行'
     }
   ],
-  Install: 'インストールと必読',
+  FAQ: 'FAQ',
   GetStarted: 'すぐに始めましょう',
   Base: '基本構成',
   Rel: 'ウィンドウプログラムタイプ宣言',
@@ -36,9 +36,7 @@ export default {
   Free: 'フルスクリーンウィンドウ',
   Level: 'ウィンドウ表示レベル',
   Color: 'ウィンドウのデフォルトの背景色',
-  Animate_Effect: 'ウィンドウアニメーション',
-  Custom_Effect: 'カスタムトランジションアニメーション',
-  Preset_Effect: 'プリセットトランジションアニメーション',
+  SegueEffect: 'プリセットトランジションアニメーション',
   Modality: 'Modality',
   Lifecycle: 'ライフサイクル',
   Background: 'バックグラウンド実行',

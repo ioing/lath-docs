@@ -25,8 +25,8 @@ export default () => {
       <div class="card">
         <div class="card-title">${lang.Start}</div>
         <div class="card-list">
-          <a href="?id=install#docs">${lang.Install}</a>
           <a href="?id=start#docs">${lang.GetStarted}</a>
+          <a href="?id=FAQ#docs">${lang.FAQ}</a>
         </div>
       </div>
       <div class="card snap-card">
@@ -53,10 +53,9 @@ export default () => {
         <div class="card-title">${lang.Viewport}</div>
         <div class="card-list">
           <a href="?id=free#docs">${lang.Free}</a>
-          <a href="?id=level#docs">${lang.Level}</a>
           <a href="?id=color#docs">${lang.Color}</a>
-          <a href="?id=presetEffect#docs">${lang.Preset_Effect}</a>
-          <a href="?id=customEffect#docs">${lang.Custom_Effect}</a>
+          <a href="?id=level#docs">${lang.Level}</a>
+          <a href="?id=segueEffect#docs">${lang.SegueEffect}</a>
           <a href="?id=defaultSlideViewApplets#docs">${lang.DefaultSlideViewApplets}</a>
           <a href="?id=modality#docs">${lang.Modality}</a>
         </div>
@@ -70,6 +69,7 @@ export default () => {
           <a href="?id=preIndex#docs">${lang.PreIndex}</a>
           <a href="?id=notFound#docs">${lang.NotFound}</a>
           <a href="?id=holdBack#docs">${lang.HoldBack}</a>
+          <a href="?id=limit#docs">${lang.Limit}</a>
           <a href="?id=appletManifestProcess#docs">${lang.AppletManifestProcess}</a>
         </ul>
       </div>
@@ -78,7 +78,7 @@ export default () => {
         <ul class="card-list">
           <a href="?id=background#docs">${lang.Background}</a>
           <a href="?id=timeout#docs">${lang.Timeout}</a>
-          <a href="?id=limit#docs">${lang.Limit}</a>
+          <a href="?id=mediaGuard#docs">${lang.MediaGuard}</a>
         </ul>
       </div>
       <div class="card">
@@ -87,7 +87,6 @@ export default () => {
           <a href="?id=resource#docs">${lang.Resource}</a>
           <a href="?id=prerender#docs">${lang.Prerender}</a>
           <a href="?id=components#docs">${lang.Components}</a>
-          <a href="?id=mediaGuard#docs">${lang.MediaGuard}</a>
           <a href="?id=portal#docs">${lang.Portal}</a>
         </ul>
       </div>

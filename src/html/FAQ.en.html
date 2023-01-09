@@ -1,0 +1,47 @@
+
+    
+<div class="card">
+  <h1>FAQ</h1>
+
+<p><strong>Why use it?</strong></p>
+<p>It can take your page experience to the next level and achieve the effect comparable to native Apps, such as <a to-applet="docs?id=pullToRefresh" clone-as="popDoc">Preload secondary pages</a>, <a to-applet="docs?id=modality" clone-as="popDoc">Pop Sheet</a> interactive effect, <a to-applet="docs?id=pullToRefresh" clone-as="popDoc">smooth flicker-free pull-down refresh</a>, to achieve seamless<a to-applet="docs?id=presetEffect" clone-as="popDoc">Page segue effects</a>and smooth<a to-applet="docs?id=presetEffect" clone-as="popDoc">Page horizontal sliding effect</a>and many other implementation schemes.</p>
+<p>When you want to get all of this, you do not need to make changes to the original logic and framework, or even block the page performance when the initial page loads.</p>
+<p>Lath has a very good design in window management. It can not only automatically help you to recycle resources, but also automatically control the event process between pages. The applications created with it are truly Web Apps that are comparable to Native Apps.</p>
+<hr>
+<p><strong>How much does it cost?</strong></p>
+<p>Lath is a container, so it has no requirements for what framework your web program uses, and even you don&#39;t need to modify your program logic, just through some simple configurations and conventions to complete the transformation to Lath, such as you can use React, VueJs, and so on.</p>
+<hr>
+<p><strong>Where does the scroll event go when declared with &lt;define-applet&gt;?</strong></p>
+<p>Each Applet view is equivalent to a complete page content, and it should have its own scroll container, so when declared with &lt;define-applet&gt;, its internal logic related to scroll events needs to be moved from &quot;body&quot; Except, the modification is bound to its own &lt;define-applet&gt; tag element.</p>
+<hr>
+<p><strong>How to introduce cross-domain page views?</strong></p>
+<p>When using source to declare an Applet&#39;s view, if its src page points to a cross-domain page, the ability of the proxy type in the page will be limited. To solve this problem, you can also introduce Lath in the reference page and enable the option <a to-applet="docs?id=tunneling" clone-as="popDoc">PresetConfig &gt; tunneling</a> to lift some restriction.</p>
+<hr>
+<p><strong>Does Lath have timing requirements?</strong></p>
+<p>Lath as an experience enhancement container, is not necessary on the first screen, so we recommend executing the &#39;createApplication&#39; method after the first screen is loaded, so as not to block the rendering of the first screen content.</p>
+<hr>
+<p><strong>Typescript&amp;JSX warning?</strong></p>
+<p>When using Typescript in the React environment, we need to define the type of the container&#39;s label, otherwise &#39;ts&#39; will generate a warning. At this time, add &#39;the type.d.ts&#39; file to the project.</p>
+<pre><div class="docs-code"><code-highlight type="ts">// type.d.ts
+import &#39;lath&#39;
+declare namespace JSX {
+  interface IntrinsicElements {
+    &#39;define-applet&#39;: {
+      children: Element
+      &#39;applet-id&#39;: string
+    }
+    &#39;define-application&#39;: {
+      children: Element
+      &#39;default-applet&#39;: string
+    }
+  }
+}
+</code-highlight></div></pre>
+
+</div>
+<div class="card">
+  <h1>See also</h1>
+
+<p><a href="https://github.com/ioing/lath-vue-example">A code example developed using Lath in a Vue project.</a></p>
+</div>
+    
