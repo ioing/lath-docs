@@ -1,3 +1,5 @@
+# Application.PushWindow
+
 <small>Application.pushWindow</small>
 
 Transform to the page that specifies the Applet or URL.

@@ -1,3 +1,5 @@
+# Application.PushWindow
+
 <small>Application.pushWindow</small>
 
 转场到指定程序卡或 url 的页面。
