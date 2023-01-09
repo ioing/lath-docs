@@ -1,0 +1,57 @@
+
+    all>Application.pushWindow</small></p>
+<p>Transform to the page that specifies the Applet or URL.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">declare interface TransformActionOrigin {
+  x: number
+  y: number
+}
+type PushWindowOptions = [
+  url: string,
+  title: string,
+  preset: string,
+  cloneAs?: string,
+  touches?: TouchEvent | TransformActionOrigin
+]
+type pushWindow = (
+  url: string,
+  title = &#39;&#39;,
+  preset = &#39;slide&#39;,
+  cloneAs?: string,
+  touches?: TouchEvent | TransformActionOrigin
+) =&gt; Promise&lt;void&gt;
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>Same as <a href="?id=applicationTo#docs" preset-effect="slide" clone-as="doc-newWindow-applicationTo" >Application.to</a>, the first parameter of &#39;pushWindow&#39; can be passed in not only an Applet ID, but also a page URL to open a newly generated Applet page.</p>
+<p><strong>cloneAs</strong></p>
+<p>Define the name of a new clone of the Applet that does not replace the original Applet instance, but exists independently as a new Applet.</p>
+<p><strong>preset</strong></p>
+<p>Define the built-in animation effect that is used when the Applet is opened, and its value is the built-in animation name.</p>
+<p><strong>title</strong></p>
+<p>Define the title of the opened Applet.</p>
+<p><strong>touches</strong></p>
+<p>Same as the part of the &#39;touches&#39; in the &#39;Application.to&#39;.</p>
+<p><strong>url</strong></p>
+<p>Open the url of the new page (the target page will be affected by the [capture] logic).</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">application.pushWindow(
+  &#39;http://www.xxxxx.com/index.html&#39;,
+  &#39;首页&#39;,
+  &#39;zoom&#39;,
+  &#39;newHome&#39;
+)
+</code-highlight></div></pre>
+<p>If you want to invoke this capability in an &#39;iframe&#39; page, you can use &#39;postMessage&#39; to send a request.</p>
+<pre><div class="docs-code"><code-highlight type="ts">parent.postMessage({
+  action: &#39;pushWindow&#39;,
+  data: [&#39;https://xxx.com/&#39;, &#39;title&#39;],
+})
+</code-highlight></div></pre>
+</div>
+    

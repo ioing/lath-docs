@@ -1,0 +1,24 @@
+
+    
+<div class="card">
+  <h1>Applet.viewType</h1>
+
+<p><small>Applet.viewType</small></p>
+<p>The type of Applet view.</p>
+<hr>
+<h3>Types</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">type viewType = &#39;portal&#39; | &#39;iframe&#39; | &#39;shadow&#39;
+</code-highlight></div></pre>
+<hr>
+<h3>Details</h3>
+
+<p>The Applets generated from the configuration item &#39;source&#39; and &#39;render&#39; correspond to the &quot;iframe&quot; and &quot;shadow&quot; types respectively, while the Applets with both &#39;source&#39; and &#39;portal&#39; properties are of type &quot;portal&quot;.</p>
+<hr>
+<h3>Example</h3>
+
+<pre><div class="docs-code"><code-highlight type="ts">const applet = await application.get(&#39;home&#39;)
+console.log(applet.viewType)
+</code-highlight></div></pre>
+</div>
+    
