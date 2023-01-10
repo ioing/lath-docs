@@ -48,7 +48,7 @@ export const ScopeCodeHighlighter = (w): CustomElementConstructor => {
       const trimstr = /^\s+/.exec(codeText)?.[0] || ''
       const trimlength = trimstr.length
       codeText = codeText.replace(/\n\s+/g, function (trims) {
-        trims = '\n' + trims.substr(trimlength)
+        trims = trims.substr(trimlength)
         return trims
       })
       codeText = codeText.trim()
