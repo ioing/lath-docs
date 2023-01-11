@@ -30,6 +30,8 @@ export default {
       subTitle: '任何代码方案都可得到平滑过渡'
     }
   ],
+  Help: '寻求帮助',
+  Support: '联系与支持',
   FAQ: '常见问题',
   GetStarted: '快速上手',
   Base: '基础配置',

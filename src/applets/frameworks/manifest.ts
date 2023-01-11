@@ -30,6 +30,27 @@ export default {
       }
       window.addEventListener('message', updateThemeEvent)
     },
+    injectToDocument: (shadowWindow) => {
+      try {
+        const isShowSupported = localStorage.getItem('isShowSupport')
+        if (isShowSupported) return
+        const supportModal = shadowWindow.document.getElementById('supportModal')
+        setTimeout(() => {
+          if (supportModal) {
+            supportModal.style.display = 'block'
+            const closeModal = shadowWindow.document.getElementById('closeModal')
+            if (closeModal) {
+              closeModal.addEventListener('click', () => {
+                supportModal.style.display = 'none'
+                localStorage.setItem('isShowSupport', 'true')
+              })
+            }
+          }
+        }, 4000)
+      } catch (error) {
+        //
+      }
+    },
     transfer: (url) => {
       if (url.indexOf('#empty') !== -1) {
         return 'empty'

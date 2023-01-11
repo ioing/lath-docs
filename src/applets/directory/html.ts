@@ -26,6 +26,12 @@ export default () => {
         <div class="card-title">${lang.Start}</div>
         <div class="card-list">
           <a href="?id=start#docs">${lang.GetStarted}</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">${lang.Help}</div>
+        <div class="card-list">
+          <a to-applet="support">${lang.Support}</a>
           <a href="?id=FAQ#docs">${lang.FAQ}</a>
         </div>
       </div>

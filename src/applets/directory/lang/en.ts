@@ -30,6 +30,8 @@ export default {
       subTitle: 'Smooth transitions for any coding scheme'
     }
   ],
+  Help: 'Need assistance?',
+  Support: 'Contact and Support',
   FAQ: 'FAQ',
   GetStarted: 'Get Started',
   Base: 'Basic',

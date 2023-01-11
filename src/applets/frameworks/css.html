@@ -118,3 +118,89 @@
   }
 </style>
 
+<style>
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 19999999;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    width: 80vw;
+    max-width: 360px;
+  }
+
+  .modal .close-btn {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #000;
+    font-size: 24px;
+  }
+
+  .modal h1 {
+    margin-top: 0;
+  }
+
+  .modal p {
+    color: #333;
+    margin: 0 0 20px;
+    padding: 0;
+  }
+
+  .modal .content {
+    min-height: 140px;
+  }
+
+  .modal button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #103ac3;
+    color: white;
+    border-radius: 8px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .modal .icon {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+  }
+  .modal .icon::after {
+    content: ' ';
+    display: block;
+    zoom: .3;
+    width: 400px; 
+    height: 400px;
+    background: 
+    linear-gradient(90deg, #050505 0px, #050505 12px, #DE271C 12px) 85px 0 no-repeat,
+    linear-gradient(0deg, #050505 0px, #050505 10px) 100% 290px no-repeat,
+    linear-gradient(180deg, #E9E9E9 0, #E9E9E9 120px, #050505 120px, #050505 145px, #E9E9E9 145px, #E9E9E9 290px, #050505 290px, #050505 300px, #025A9F 300px) no-repeat,
+    linear-gradient(90deg, #050505 0px, #050505 12px, #E9E9E9 12px, #E9E9E9 270px, #050505 270px) 85px 100% no-repeat,
+    linear-gradient(180deg, #E9E9E9 0px, #E9E9E9 42px, #050505 42px, #050505 60px, #EEDC6C 60px) 100% 100% no-repeat;
+    background-size: 315px 290px, 315px 10px, 85px 400px, 282px 100px, 33px 100px, 420px 326px;  
+    box-shadow: 0px 5px 0px 0px #C8AD98, 0px 0px 2px 0px #C9B695, 0px 10px 10px 0px #C9B695;
+    background-blend-mode: color-dodge;
+  }
+
+</style>
+

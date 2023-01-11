@@ -8,7 +8,7 @@ import docs from './applets/docs/manifest'
 import weChatQrCode from './applets/weChatQrCode/manifest'
 import empty from './applets/empty/manifest'
 import system from './applets/system/manifest'
-import news from './applets/news/manifest'
+import support from './applets/support/manifest'
 import weChatPay from './applets/wechatPay/manifest'
 import './webComponents'
 import mainHTML from './mainHTML'
@@ -36,7 +36,7 @@ createApplication({
     api,
     empty,
     system,
-    news,
+    support,
     weChatQrCode,
     weChatPay
   }
@@ -46,7 +46,7 @@ createApplication({
   //   if ("ontouchstart" in document.documentElement && !sessionStorage.getItem('firstVisit')) {
   //     setTimeout(() => {
   //       if (confirm('Check out the latest progress of the project now?')) {
-  //         application.to('news')
+  //         application.to('support')
   //       }
   //     }, 6000)
   //   }

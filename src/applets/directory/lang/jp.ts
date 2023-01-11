@@ -25,6 +25,8 @@ export default {
       subTitle: 'あらゆるコーディングスキームのスムーズな移行'
     }
   ],
+  Help: '寻求帮助',
+  Support: 'Contact and Support',
   FAQ: 'FAQ',
   GetStarted: 'すぐに始めましょう',
   Base: '基本構成',
