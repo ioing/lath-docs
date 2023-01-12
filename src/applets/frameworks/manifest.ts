@@ -32,17 +32,23 @@ export default {
     },
     injectToDocument: (shadowWindow) => {
       try {
-        const isShowSupported = localStorage.getItem('isShowSupport')
+        const isShowSupported = localStorage.getItem('isShowSupported')
         if (isShowSupported) return
         const supportModal = shadowWindow.document.getElementById('supportModal')
         setTimeout(() => {
           if (supportModal) {
             supportModal.style.display = 'block'
+            setTimeout(() => {
+              supportModal.style.opacity = '1'
+            }, 100)
             const closeModal = shadowWindow.document.getElementById('closeModal')
             if (closeModal) {
               closeModal.addEventListener('click', () => {
-                supportModal.style.display = 'none'
-                localStorage.setItem('isShowSupport', 'true')
+                supportModal.style.opacity = '0'
+                setTimeout(() => {
+                  supportModal.style.display = 'none'
+                }, 400)
+                localStorage.setItem('isShowSupported', 'true')
               })
             }
           }

@@ -128,7 +128,8 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 19999999;
-    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity .4s;
   }
 
   .modal {
@@ -181,27 +182,9 @@
     font-size: 16px;
   }
 
-  .modal .icon {
-    width: 120px;
-    height: 120px;
-    margin-right: 20px;
+  .modal ul li {
+    margin: 0 0 15px 0;
+    color: #222;
   }
-  .modal .icon::after {
-    content: ' ';
-    display: block;
-    zoom: .3;
-    width: 400px; 
-    height: 400px;
-    background: 
-    linear-gradient(90deg, #050505 0px, #050505 12px, #DE271C 12px) 85px 0 no-repeat,
-    linear-gradient(0deg, #050505 0px, #050505 10px) 100% 290px no-repeat,
-    linear-gradient(180deg, #E9E9E9 0, #E9E9E9 120px, #050505 120px, #050505 145px, #E9E9E9 145px, #E9E9E9 290px, #050505 290px, #050505 300px, #025A9F 300px) no-repeat,
-    linear-gradient(90deg, #050505 0px, #050505 12px, #E9E9E9 12px, #E9E9E9 270px, #050505 270px) 85px 100% no-repeat,
-    linear-gradient(180deg, #E9E9E9 0px, #E9E9E9 42px, #050505 42px, #050505 60px, #EEDC6C 60px) 100% 100% no-repeat;
-    background-size: 315px 290px, 315px 10px, 85px 400px, 282px 100px, 33px 100px, 420px 326px;  
-    box-shadow: 0px 5px 0px 0px #C8AD98, 0px 0px 2px 0px #C9B695, 0px 10px 10px 0px #C9B695;
-    background-blend-mode: color-dodge;
-  }
-
 </style>
 

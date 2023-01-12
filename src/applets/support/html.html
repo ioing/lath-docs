@@ -39,17 +39,6 @@ ul.item-list li a span {
   font-size: 16px;
   font-weight: bold;
 }
-
-.btn {
-  margin: 20px auto;
-  border-radius: 30px;
-  padding: 4px 15px;
-  color: #fff;
-  width: 70px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, .5);
-  cursor: pointer;
-}
 .title {
   font-size: 48px;
   color: #fff;
@@ -86,16 +75,6 @@ ul.item-list li a span {
   line-height: 120px;
 }
 </style>
-
-<script>
-  function maskAsRead() {
-    try {
-      sessionStorage.setItem('firstVisit', `${Date.now()}`)
-    } catch (error) {
-      //
-    }
-  }
-</script>
 
 <div style="height: 100%; overflow: hidden;">
   <div class="title">
@@ -144,5 +123,4 @@ ul.item-list li a span {
       </a>
     </li>
   </ul>
-  <div class="btn" onclick="maskAsRead()">不再提醒</div>
 </div>
