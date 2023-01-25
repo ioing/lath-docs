@@ -69,9 +69,9 @@ createApplication({
 })
 ```
 
-We use the &lt;define-application> container to declare the application, but to actually start the application we also need to execute the <a to-applet="docs?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.
+We use the &lt;define-application> container to declare the application, but to actually start the application we also need to execute the **createApplication** method, and pass in the Applet related configuration.
 
-Unsurprisingly we will get a "magic" page, at which point we can do this via the A link or <a to-applet="docs?id=api_application_to" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.
+Unsurprisingly we will get a "magic" page, at which point we can do this via the A link or <a to-applet="docs?id=apiApplicationTo" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.
 
 ---
 

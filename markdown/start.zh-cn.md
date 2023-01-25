@@ -67,9 +67,9 @@ createApplication({
 })
 ```
 
-我们使用 &lt;define-application> 容器是为了声明应用，但要真正启动应用还需要执行 <a to-applet="docs?id=install" clone-as="popDoc">createApplication</a> 方法，并传入 Applet 相关配置。
+我们使用 &lt;define-application> 容器是为了声明应用，但要真正启动应用还需要执行 **createApplication** 方法，并传入 Applet 相关配置。
 
-不出意外我们将得到一个“施了魔法”的页面，此时我们可以通过 A 链接或 <a to-applet="docs?id=api_application_to" clone-as="popDoc">Application.to</a> 等方法路由到已定义的程序卡视图上。
+不出意外我们将得到一个“施了魔法”的页面，此时我们可以通过 A 链接或 <a to-applet="docs?id=apiApplicationTo" clone-as="popDoc">Application.to</a> 等方法路由到已定义的程序卡视图上。
 
 一般情况下我们不会将应用中所有可能被加载的路由页面都一次性集成在一个页面中，而是希望能按需载入，那我们只需通过配置信息来表达即可：
 

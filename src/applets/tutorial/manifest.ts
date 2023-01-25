@@ -15,11 +15,13 @@ export default {
         return ''
       }
     },
-    modality: 'sheet' as 'sheet',
-    modalityUnderUntouchable: 'overlay' as 'overlay',
-    paperOptions: {
-      top: '10px + env(safe-area-inset-top)'
-    },
+    // modality: 'sheet' as 'sheet',
+    // modalityUnderUntouchable: 'overlay' as 'overlay',
+    // paperOptions: {
+    //   top: '10px + env(safe-area-inset-top)'
+    // },
+    animation: 'zoom' as 'zoom',
+    untouchableSegueType: 'zoom',
     color: 'inherit',
     timeout: 300000,
     background: 'auto' as 'auto',

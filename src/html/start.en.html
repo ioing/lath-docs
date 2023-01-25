@@ -66,8 +66,8 @@ createApplication({
   },
 })
 </code-highlight></div></pre>
-<p>We use the &lt;define-application&gt; container to declare the application, but to actually start the application we also need to execute the <a to-applet="docs?id=install" clone-as="popDoc">createApplication</a> method, and pass in the Applet related configuration.</p>
-<p>Unsurprisingly we will get a &quot;magic&quot; page, at which point we can do this via the A link or <a to-applet="docs?id=api_application_to" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.</p>
+<p>We use the &lt;define-application&gt; container to declare the application, but to actually start the application we also need to execute the <strong>createApplication</strong> method, and pass in the Applet related configuration.</p>
+<p>Unsurprisingly we will get a &quot;magic&quot; page, at which point we can do this via the A link or <a to-applet="docs?id=apiApplicationTo" clone-as="popDoc">Application.to</a> etc. methods are routed to a defined Applet view.</p>
 <hr>
 <p>In general, we will not integrate all the routing pages that may be loaded in the application into one page at one time, but hope to load on demand, then we only need to express it through the configuration information:</p>
 <pre><div class="docs-code"><code-highlight type="ts">import { createApplication } from &#39;lath&#39;

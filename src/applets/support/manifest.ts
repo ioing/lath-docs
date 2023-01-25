@@ -10,11 +10,11 @@ export default {
     modality: 'sheet' as 'sheet',
     modalityUnderUntouchable: 'paper' as 'paper',
     sheetOptions: {
-      top: '5%',
+      top: '7%',
       backgroundBrightness: 0.8,
       maskClosable: true,
-      miniCardHeight: '260px',
-      defaultCardSize: 'large' as 'large',
+      miniCardHeight: '560px',
+      // defaultCardSize: 'large' as 'large',
       backdropColor: 'rgb(82 82 82)',
       swipeClose: true
     },
