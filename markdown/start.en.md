@@ -1,8 +1,17 @@
+# Why use it?
+
+IF YOU WANT TO CREATE DELIGHTFUL APP EXPERIENCES WITH WEB TECHNOLOGY, **YOU'LL TYPICALLY FACE THE FOLLOWING QUESTIONS**:
+
+- Assemble pages of different technology types together and make sure they don't interfere with each other
+- Routing between pages requires smooth transitions and gestures, which can be a challenge especially in terms of performance
+- You need to complete complex system design such as page preload acceleration and lifecycle management
+- Create a good configuration and automation system In practice, you may face more difficulties and challenges. Now, it's all going to be much simpler, and you just need to use Lath.
+
 # Concept
 
 Before getting started quickly, let's first understand the basic concepts and terms.
 
-- **Lath**: Lath is an experience enhancement container with very small initial dependencies, only about **5kb**. Its core capabilities are atomic, and dependencies are only dynamically loaded when needed.
+- **Lath**: Lath is an experience enhancement container with a first dependency of only about **5kb**. Its atomic core capabilities are automatically on-demand.
 - **Application**: A Lath application is composed of several Applets.
 - **Applet**: An Applet is composed of one page or one View and its related configuration files.
 - **FrameworksApplet**: Each Lath Application must have a frame-type Applet, which mainly carries public capabilities, such as navigation bars and so on.

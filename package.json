@@ -20,7 +20,8 @@
     "build": "npm run marked && npm run clean && webpack build && node ./pwa.js",
     "debug": "node --inspect-brk dist/index.js",
     "start": "webpack serve --mode development",
-    "marked": "node ./marked.js"
+    "marked": "node ./marked.js",
+    "watch:md": "nodemon --watch markdown -e md -x 'npm run marked'"
   },
   "dependencies": {
     "@types/marked": "^4.0.8",
@@ -33,6 +34,7 @@
     "html-webpack-plugin": "^5.3.2",
     "ip": "^1.1.5",
     "lodash.merge": "^4.6.2",
+    "nodemon": "^2.0.20",
     "rimraf": "^3.0.2",
     "rollup": "^2.57.0",
     "rollup-plugin-typescript2": "^0.30.0",

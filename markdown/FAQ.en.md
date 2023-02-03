@@ -1,8 +1,8 @@
 # FAQ
 
-**Why use it?**
+**What does Lath bring?**
 
-It can take your page experience to the next level and achieve the effect comparable to native Apps, such as <a to-applet="docs?id=pullToRefresh" clone-as="popDoc">Preload secondary pages</a>, <a to-applet="docs?id=modality" clone-as="popDoc">Pop Sheet</a> interactive effect, <a to-applet="docs?id=pullToRefresh" clone-as="popDoc">smooth flicker-free pull-down refresh</a>, to achieve seamless<a to-applet="docs?id=presetEffect" clone-as="popDoc">Page segue effects</a>and smooth<a to-applet="docs?id=presetEffect" clone-as="popDoc">Page horizontal sliding effect</a>and many other implementation schemes.
+It can take your page experience to the next level and achieve the effect comparable to native Apps, such as <a to-applet="docs?id=prerender" clone-as="popDoc">Preload secondary pages</a>, <a to-applet="docs?id=modality" clone-as="popDoc">Pop Sheet</a> interactive effect, <a to-applet="docs?id=pullToRefresh" clone-as="popDoc">smooth flicker-free pull-down refresh</a>, to achieve seamless<a to-applet="docs?id=segueEffect" clone-as="popDoc">Page segue effects</a>and smooth<a to-applet="docs?id=defaultSlideViewApplets" clone-as="popDoc">Page horizontal sliding effect</a>and many other implementation schemes.
 
 When you want to get all of this, you do not need to make changes to the original logic and framework, or even block the page performance when the initial page loads.
 
