@@ -43,6 +43,7 @@ createApplication({
       config: {
         title: 'demo',
         free: true,
+        animation: 'slide',
         source: {
           src: './Exp/def/index.html'
         }
