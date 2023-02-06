@@ -29,6 +29,18 @@ export default () => {
         </div>
       </div>
       <div class="card">
+        <div class="card-title">${lang.Demo}</div>
+        <div class="snap-container">
+          ${lang.DemoAppList.map((item) => {
+    return `
+              <div to-applet="tutorial?id=${item.id}" class="child icon">
+                <p>${item.title}</p>
+              </div>
+            `
+  }).join('')}
+        </div>
+      </div>
+      <div class="card">
         <div class="card-title">${lang.Help}</div>
         <div class="card-list">
           <a to-applet="support">${lang.Support}</a>
@@ -36,9 +48,9 @@ export default () => {
         </div>
       </div>
       <div class="card snap-card">
-        <div class="card-title">${lang.QuickDemo}</div>
+        <div class="card-title">${lang.Tutorial}</div>
         <div class="snap-container">
-          ${lang.QuickDemoList.map((item) => {
+          ${lang.tutorialList.map((item) => {
     return `
               <div to-applet="tutorial?id=${item.id}" class="child">
                 <h2>${item.title}</h2>

@@ -2,8 +2,15 @@ export default {
   websiteMainTitle: 'ネイティブアプリに匹敵するインタラクティブな体験をもたらす.',
   websiteSubtitle: '純粋なフロントエンドコンテナ',
   Start: '始める',
-  QuickDemo: 'チュートリアル',
-  QuickDemoList: [
+  Demo: 'Demo',
+  DemoAppList: [
+    {
+      id: 'demo1',
+      title: 'Base App'
+    },
+  ],
+  Tutorial: 'チュートリアル',
+  tutorialList: [
     {
       title: 'スライディングカード、スムーズでスタックしない',
       subTitle: 'ジェスチャーおよびイベント駆動型のサポート'

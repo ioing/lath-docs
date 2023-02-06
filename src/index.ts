@@ -38,7 +38,16 @@ createApplication({
     system,
     support,
     weChatQrCode,
-    weChatPay
+    weChatPay,
+    demo1: {
+      config: {
+        title: 'demo',
+        free: true,
+        source: {
+          src: './Exp/def/index.html'
+        }
+      }
+    }
   }
 }).then((application: Application) => {
   window.lathApp = application

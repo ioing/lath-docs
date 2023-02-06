@@ -2,8 +2,15 @@ export default {
   websiteMainTitle: 'Bring interactive experiences comparable to Native Apps.',
   websiteSubtitle: 'A pure front-end container',
   Start: 'Start',
-  QuickDemo: 'Quick Demo Index',
-  QuickDemoList: [
+  Demo: 'Demo',
+  DemoAppList: [
+    {
+      id: 'demo1',
+      title: 'Base App'
+    },
+  ],
+  Tutorial: 'Tutorial',
+  tutorialList: [
     {
       id: 'tutorialSlidingCards',
       title: 'Sliding cards, smooth and not stuck',

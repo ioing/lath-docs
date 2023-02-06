@@ -2,8 +2,15 @@ export default {
   websiteMainTitle: '带来媲美原生应用的交互体验，仅需引入和配置即可获得全部。',
   websiteSubtitle: '一个纯前端页面容器',
   Start: '开始',
-  QuickDemo: '快速指引',
-  QuickDemoList: [
+  Demo: 'Demo',
+  DemoAppList: [
+    {
+      id: 'demo1',
+      title: 'Base App'
+    },
+  ],
+  Tutorial: '快速指引',
+  tutorialList: [
     {
       id: 'tutorialSlidingCards',
       title: '多程序卡片间横滑，不卡顿不掉帧',
