@@ -88,3 +88,14 @@ copyFolder('./pwa', 'docs', function (err) {
     return
   }
 })
+
+fs.mkdir('docs/Exp', () => {
+  fs.mkdir('docs/Exp/def', () => {
+    copyFolder('./Exp/def/docs', 'docs/Exp/def/', function (err) {
+      if (err) {
+        console.log(err)
+        return
+      }
+    })
+  })
+})

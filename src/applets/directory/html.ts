@@ -33,7 +33,7 @@ export default () => {
         <div class="snap-container">
           ${lang.DemoAppList.map((item) => {
     return `
-              <div to-applet="tutorial?id=${item.id}" class="child icon">
+              <div to-applet="${item.id}" class="child icon">
                 <p>${item.title}</p>
               </div>
             `
