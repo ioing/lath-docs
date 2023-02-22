@@ -36,7 +36,7 @@ import template from './template.html'
 const tmpl = document.createElement('template')
 tmpl.innerHTML = `${template}`
 
-export const ScopeCodeHighlighter = (w): CustomElementConstructor => {
+export const ScopeCodeHighlighter = (w) => {
   class CodeHighlighter extends w.HTMLElement {
     constructor() {
       super()
@@ -81,7 +81,6 @@ export const ScopeCodeHighlighter = (w): CustomElementConstructor => {
     // }
   }
 
+  w.customElements.get('header-tab') || w.customElements.define('code-highlight', CodeHighlighter as unknown as CustomElementConstructor)
   return CodeHighlighter as unknown as CustomElementConstructor
 }
-
-// customElements.define('code-highlight', CodeHighlighter)

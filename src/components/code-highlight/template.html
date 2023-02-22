@@ -7,6 +7,22 @@ https://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+j
  * @author Lea Verou
  */
 
+@media (min-width: 768px) {
+	/* 设置滚动条的宽度和颜色 */
+	::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+	}
+	::-webkit-scrollbar-track {
+		background-color: rgba(0,0,0,0);
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: rgba(100,100,100,0.5);
+		border-radius: 2px;
+	}
+}
+
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #e8f7fd;

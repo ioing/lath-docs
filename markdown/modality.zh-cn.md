@@ -34,7 +34,6 @@ type SheetOptions = {
   miniCardHeight?: number | string
   maskOpacity?: number
   blockedHolderWidth?: number | string
-  alwaysPopUp?: boolean
   maskClosable?: boolean
   noHandlebar?: boolean
   backdropColor?: string
@@ -61,7 +60,6 @@ interface AppletBaseConfig {
 - **miniCardHeight**: 两段式卡片，默认呈现最小尺寸窗口，在小卡呈现时背景内容不会发生缩放效果，直到向上滑打开全部。
 - **maskOpacity**: 背景黑色蒙层的不透明度，默认为 0.3。
 - **blockedHolderWidth**: 左侧手指边缘滑动的安全边距（边距大小会覆盖可交互区域），边界值决定了左侧滑动关闭的灵敏度。
-- **alwaysPopUp**: 在窗口切换时是否始终保持弹出动画，默认为关闭，场景切换时窗口保持静止。
 - **maskClosable**: 点击背景蒙层是否允许关闭窗口，默认为关闭。
 - **noHandlebar**: 不展示默认的滑动控制手柄，可能你需要在内部视图中重新定义该外观。
 - **backdropColor**: 当背景程序卡缩放时所呈现的衬底颜色。
@@ -82,7 +80,6 @@ createApplication({
           miniCardHeight: '30vh',
           maskOpacity: 0.5,
           blockedHolderWidth: 20,
-          alwaysPopUp: false,
           maskClosable: true
         }
       }

@@ -26,7 +26,6 @@ type SheetOptions = {
   miniCardHeight?: number | string
   maskOpacity?: number
   blockedHolderWidth?: number | string
-  alwaysPopUp?: boolean
   maskClosable?: boolean
   noHandlebar?: boolean
   backdropColor?: string
@@ -55,7 +54,6 @@ interface AppletBaseConfig {
 <li><strong>maskOpacity</strong>: The opacity of the background black mash, default is 0.3.</li>
 <li><strong>maskOpacity</strong>: The opacity of the background black mash, default is 0.3.</li>
 <li><strong>blockedHolderWidth</strong>: The safe margin of the left finger edge sliding (the size of the margin will cover the interactive area), and the boundary value determines the sensitivity of the left sliding closing.</li>
-<li><strong>alwaysPopUp</strong>: Whether to always keep the popup animation when the window is switched, the default is off, and the window remains still when the scene is switched.</li>
 <li><strong>maskClosable</strong>: Click whether the background mask is allowed to close the window, the default is closed.</li>
 <li><strong>noHandlebar</strong>: Instead of showing the default slide controls, you may need to redefine that look in the interior view.</li>
 <li><strong>backdropColor</strong>: The underlay color to render when the backdrop Applet is scaled.</li>
@@ -73,7 +71,6 @@ interface AppletBaseConfig {
           miniCardHeight: &#39;30vh&#39;,
           maskOpacity: 0.5,
           blockedHolderWidth: 20,
-          alwaysPopUp: false,
           maskClosable: true
         }
       }

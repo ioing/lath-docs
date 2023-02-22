@@ -11,6 +11,21 @@
     background-color: var(--background, #000);
   }
 
+  @media (min-width: 768px) {
+    /* 设置滚动条的宽度和颜色 */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: rgba(0,0,0,0);
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(100,100,100,0.5);
+      border-radius: 2px;
+    }
+  }
+
   #page-content {
     min-height: 100%;
   }
