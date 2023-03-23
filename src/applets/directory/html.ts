@@ -34,7 +34,7 @@ export default () => {
           ${lang.DemoAppList.map((item) => {
     return `
               <div to-applet="${item.id}" class="child icon">
-                <p>${item.title}</p>
+                ${item.title}
               </div>
             `
   }).join('')}

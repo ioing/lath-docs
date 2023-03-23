@@ -35,7 +35,7 @@ export default `
     padding: 0.7em 0.6em;
     width: 18em;
   
-    background: rgb(0 116 255 / 100%);
+    background: rgb(15 99 199);
     background-size: 100% auto;
   
     box-shadow: 0 0.2em 0 #3290ff, 0 5px 30px rgb(0 0 0 / 50%);

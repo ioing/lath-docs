@@ -82,5 +82,4 @@ export const ScopeCodeHighlighter = (w) => {
   }
 
   w.customElements.get('header-tab') || w.customElements.define('code-highlight', CodeHighlighter as unknown as CustomElementConstructor)
-  return CodeHighlighter as unknown as CustomElementConstructor
 }

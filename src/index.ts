@@ -46,7 +46,8 @@ createApplication({
         animation: 'slide',
         source: {
           src: './Exp/def/index.html'
-        }
+        },
+        apply: []
       }
     }
   }

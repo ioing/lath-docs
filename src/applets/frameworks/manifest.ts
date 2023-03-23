@@ -8,7 +8,7 @@ export default {
     title: 'LATH',
     level: 0,
     free: false,
-    prerender: ['home', 'directory', 'empty', 'docs', 'support', 'weChatQrCode', 'weChatPay'],
+    prerender: ['home', 'directory', 'empty', 'docs', 'support', 'weChatQrCode', 'weChatPay', 'demo1'],
     // swipeModel: true, // 默认 android 以及 pc 和 不支持 touch 的设备为关闭
     pullToRefresh: true,
     animation: 'slide',
