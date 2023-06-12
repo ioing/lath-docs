@@ -24,7 +24,7 @@
   "dependencies": {
     "@types/node": "^10.12.12",
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "lath": "^0.10.30"
+    "lath": "^0.12.7"
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.3.2",
