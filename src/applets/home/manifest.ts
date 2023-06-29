@@ -1,5 +1,3 @@
-import { AppletManifest } from 'lath/app/typings/types'
-
 export default {
   config: {
     level: 1,
@@ -8,14 +6,14 @@ export default {
     defaultSlideViewApplets: [
       {
         id: "directory",
-        activate: "instant"
+        activate: "instant" as "instant"
       },
       {
         id: "api",
-        activate: "lazy"
+        activate: "lazy" as "lazy"
       }
     ],
     color: 'inherit',
     background: true
   }
-} as AppletManifest
+}

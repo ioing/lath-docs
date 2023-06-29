@@ -11,7 +11,7 @@ export default {
     prerender: ['home', 'directory', 'empty', 'docs', 'support', 'weChatQrCode', 'weChatPay', 'demo1'],
     // swipeModel: true, // 默认 android 以及 pc 和 不支持 touch 的设备为关闭
     pullToRefresh: true,
-    animation: 'slide',
+    animation: 'slide' as 'slide',
     appSwitcher: true,
     background: true,
     untouchableSegueType: 'fade',
@@ -70,4 +70,4 @@ export default {
       window.removeEventListener('message', updateThemeEvent)
     }
   }
-} as FrameworksAppletManifest
+}

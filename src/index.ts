@@ -51,7 +51,7 @@ createApplication({
       }
     }
   }
-}).then((application: Application) => {
+}).then((application: any) => {
   window.lathApp = application
   // try {
   //   if ("ontouchstart" in document.documentElement && !sessionStorage.getItem('firstVisit')) {

@@ -1,6 +1,5 @@
 import htmlString from './source'
 import { ScopeCodeHighlighter } from '../../components/code-highlight'
-import { AppletManifest } from 'lath/app/typings/types'
 
 export default {
   config: {
@@ -13,10 +12,10 @@ export default {
         return Promise.resolve(html)
       }
     },
-    animation: 'slide',
+    animation: 'slide' as 'slide',
     color: 'inherit',
     background: 'auto' as 'auto',
     pullToRefresh: true,
   },
   components: [ScopeCodeHighlighter]
-} as AppletManifest
+}

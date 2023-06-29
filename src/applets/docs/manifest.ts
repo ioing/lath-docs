@@ -1,6 +1,6 @@
 import { getHtml } from './source'
 import { ScopeCodeHighlighter } from '../../components/code-highlight'
-import { AppletManifest } from 'lath/app/typings/types'
+// import { AppletManifest } from 'lath/app/typings/types'
 
 export default {
   config: {
@@ -51,4 +51,4 @@ export default {
     },
   },
   components: [ScopeCodeHighlighter]
-} as AppletManifest
+}
