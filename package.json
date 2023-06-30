@@ -27,7 +27,7 @@
     "@types/marked": "^4.0.8",
     "@types/node": "^10.12.12",
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "lath": "^0.12.18",
+    "lath": "^0.12.19",
     "marked": "^4.2.4"
   },
   "devDependencies": {
