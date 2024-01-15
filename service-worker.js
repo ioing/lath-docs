@@ -1,7 +1,7 @@
 self.importScripts('cache.js');
 
 // Files to cache
-const cacheName = 'Lath-1-v54';
+const cacheName = 'Lath-1-v100';
 const contentToCache = [
   ...cacheFiles
 ];
@@ -33,6 +33,19 @@ self.addEventListener('install', (e) => {
     if (!cache) return;
     await cache.addAll(contentToCache);
   })());
+  setTimeout(() => {
+    self.clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(clients => {
+      let hasFocused = false;
+      clients.forEach(client => {
+        if (client.focused) {
+          hasFocused = true;
+        }
+      });
+      if (!hasFocused) {
+        self.registration.unregister();
+      }
+    });
+  }, 30 * 24 * 60 * 60 * 1000); // 30 days
 });
 
 // Fetching content using Service Worker
